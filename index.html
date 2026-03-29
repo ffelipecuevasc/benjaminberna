@@ -3,7 +3,19 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Benjamín Berna Castillo | Contador General TITULADO | Staff Tax Compliance BDO CHILE</title>
+
+    <title>Benjamín Berna</title>
+    <meta name="description"
+          content="Contador General egresado con experiencia en análisis contable, cumplimiento tributario y asesorías tributarias a pymes. Intérprete avanzado de Lengua de Señas Chilena.">
+
+    <link rel="icon" type="image/svg+xml" href="./static/img/favicon.svg">
+
+    <meta property="og:title" content="Benjamín Berna Castillo | Contador General | BDO Chile">
+    <meta property="og:description"
+          content="Contador General egresado con experiencia en análisis contable, cumplimiento tributario y asesorías tributarias a pymes. Intérprete avanzado de Lengua de Señas Chilena.">
+    <meta property="og:image" content="./static/img/benjamin.png">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CL">
 
     <script>
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -36,9 +48,9 @@
                         "on-surface": "#161616",
                         "on-background": "#161616",
                         "surface-container-low": "#f4f4f4",
-                        "on-surface-variant": "#525252",
+                        "on-surface-variant": "#4a4a4a",
                         "outline-variant": "#e0e0e0",
-                        "on-secondary-fixed-variant": "#525252",
+                        "on-secondary-fixed-variant": "#4a4a4a",
                     },
                     fontFamily: {
                         "headline": ["'DM Serif Display'", "serif"],
@@ -64,8 +76,8 @@
 
         .glass {
             background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
         }
 
         .dark .glass {
@@ -96,62 +108,80 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        /* Accesibilidad: Respetar configuración de "Reducir Movimiento" del usuario */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .animate-hero-entry {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+                animation: none !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-background text-on-background antialiased dark:bg-[#161616] dark:text-[#f4f4f4]">
 
-<nav class="glass border-b border-[#e0e0e0] dark:border-[#393939] flex justify-between items-center w-full px-4 md:px-8 h-[64px] sticky top-0 z-50 font-['IBM_Plex_Sans'] text-[14px] tracking-tight relative">
+<nav aria-label="Navegación principal"
+     class="glass border-b border-[#e0e0e0] dark:border-[#393939] flex justify-between items-center w-full px-4 md:px-8 h-[64px] sticky top-0 z-50 font-['IBM_Plex_Sans'] text-[14px] tracking-tight relative">
     <div class="text-xl font-bold text-[#161616] dark:text-[#f4f4f4] flex items-center gap-2 relative z-50">
-        <span class="material-symbols-outlined text-sm text-primary">account_balance_wallet</span>
+        <span class="material-symbols-outlined text-sm text-primary" aria-hidden="true">account_balance_wallet</span>
         <span>Benjamín Berna</span>
     </div>
 
     <div class="hidden lg:flex items-center gap-8 h-full relative z-50">
-        <a class="text-[#0f62fe] dark:text-[#78a9ff] border-b-2 border-[#0f62fe] dark:border-[#78a9ff] pb-1 h-full flex items-center font-semibold"
-           href="#">Inicio</a>
-        <a class="text-[#525252] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#ffffff] transition-colors h-full flex items-center"
+        <a class="nav-link-desktop text-[#0f62fe] dark:text-[#78a9ff] border-b-2 border-[#0f62fe] dark:border-[#78a9ff] pb-1 font-semibold h-full flex items-center transition-colors"
+           href="#hero">Inicio</a>
+        <a class="nav-link-desktop text-[#4a4a4a] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#ffffff] border-b-2 border-transparent pb-1 h-full flex items-center transition-colors"
            href="#about">Sobre Mí</a>
-        <a class="text-[#525252] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#ffffff] transition-colors h-full flex items-center"
+        <a class="nav-link-desktop text-[#4a4a4a] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#ffffff] border-b-2 border-transparent pb-1 h-full flex items-center transition-colors"
            href="#skills">Habilidades</a>
-        <a class="text-[#525252] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#ffffff] transition-colors h-full flex items-center"
+        <a class="nav-link-desktop text-[#4a4a4a] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#ffffff] border-b-2 border-transparent pb-1 h-full flex items-center transition-colors"
            href="#experience">Experiencia</a>
-        <a class="text-[#525252] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#ffffff] transition-colors h-full flex items-center"
+        <a class="nav-link-desktop text-[#4a4a4a] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#ffffff] border-b-2 border-transparent pb-1 h-full flex items-center transition-colors"
            href="#education">Educación</a>
     </div>
 
     <div class="flex items-center gap-4 relative z-50">
-        <button id="theme-toggle"
+        <button id="theme-toggle" aria-label="Alternar modo claro o oscuro"
                 class="bg-primary text-white px-4 py-2 hover:opacity-90 transition-opacity flex items-center gap-2 rounded-lg text-sm font-semibold">
-            <span class="material-symbols-outlined text-sm" id="theme-icon">dark_mode</span> <span
+            <span class="material-symbols-outlined text-sm" id="theme-icon" aria-hidden="true">dark_mode</span> <span
                 class="hidden sm:inline">Apariencia</span>
         </button>
-        <button id="mobile-menu-btn"
+        <button id="mobile-menu-btn" aria-label="Abrir menú de navegación" aria-expanded="false"
                 class="lg:hidden flex items-center justify-center p-2 text-on-surface dark:text-[#f4f4f4] hover:bg-surface-variant dark:hover:bg-[#393939] rounded-lg transition-colors">
-            <span class="material-symbols-outlined" id="mobile-menu-icon">menu</span>
+            <span class="material-symbols-outlined" id="mobile-menu-icon" aria-hidden="true">menu</span>
         </button>
     </div>
 
-    <div id="mobile-menu"
+    <div id="mobile-menu" aria-hidden="true"
          class="fixed inset-0 bg-surface/95 dark:bg-[#161616]/95 backdrop-blur-md z-40 transform -translate-y-full transition-all duration-300 flex flex-col items-center justify-center space-y-8 lg:hidden opacity-0 pointer-events-none">
-        <a class="text-3xl font-semibold text-[#161616] dark:text-[#f4f4f4] transition-colors mobile-link" href="#">Inicio</a>
-        <a class="text-3xl font-semibold text-[#525252] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#f4f4f4] transition-colors mobile-link"
+        <a class="text-3xl font-semibold text-[#161616] dark:text-[#f4f4f4] transition-colors mobile-link" href="#hero">Inicio</a>
+        <a class="text-3xl font-semibold text-[#4a4a4a] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#f4f4f4] transition-colors mobile-link"
            href="#about">Sobre Mí</a>
-        <a class="text-3xl font-semibold text-[#525252] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#f4f4f4] transition-colors mobile-link"
+        <a class="text-3xl font-semibold text-[#4a4a4a] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#f4f4f4] transition-colors mobile-link"
            href="#skills">Habilidades</a>
-        <a class="text-3xl font-semibold text-[#525252] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#f4f4f4] transition-colors mobile-link"
+        <a class="text-3xl font-semibold text-[#4a4a4a] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#f4f4f4] transition-colors mobile-link"
            href="#experience">Experiencia</a>
-        <a class="text-3xl font-semibold text-[#525252] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#f4f4f4] transition-colors mobile-link"
+        <a class="text-3xl font-semibold text-[#4a4a4a] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#f4f4f4] transition-colors mobile-link"
            href="#education">Educación</a>
     </div>
 
-    <div id="scroll-progress"
+    <div id="scroll-progress" aria-hidden="true"
          class="absolute bottom-0 left-0 h-[2px] bg-primary w-0 transition-all duration-75 ease-out"></div>
 </nav>
 
 <main class="space-y-0">
-    <section id="hero"
-             class="relative min-h-[90vh] flex items-start pt-32 pb-24 px-4 md:px-16 overflow-hidden bg-surface dark:bg-[#161616] animate-hero-entry opacity-0">
+    <section id="hero" aria-labelledby="hero-title"
+             class="relative min-h-[90vh] flex items-start pt-32 pb-24 px-4 md:px-16 overflow-hidden bg-surface dark:bg-[#161616] animate-hero-entry opacity-0 scroll-mt-16">
         <div class="absolute inset-0 pointer-events-none text-on-surface dark:text-[#f4f4f4] opacity-[0.04] dark:opacity-[0.08]"
+             aria-hidden="true"
              style="background-image: radial-gradient(currentColor 1.5px, transparent 1.5px); background-size: 24px 24px;"></div>
 
         <div class="grid md:grid-cols-2 gap-20 items-center w-full max-w-7xl mx-auto relative z-10">
@@ -159,10 +189,11 @@
                 <div class="space-y-4">
 
                     <p class="text-primary font-semibold tracking-widest text-sm uppercase block">¡Hola! Soy Benjamín
-                        Berna
-                        Castillo</p>
+                        Berna Castillo
+                    </p>
 
-                    <h1 class="text-5xl md:text-8xl font-bold text-on-surface dark:text-[#f4f4f4] leading-none font-headline">
+                    <h1 id="hero-title"
+                        class="text-5xl md:text-8xl font-bold text-on-surface dark:text-[#f4f4f4] leading-none font-headline">
                         <span class="scramble block" data-value="CONTADOR">CONTADOR</span>
                         <span class="scramble block" data-value="GENERAL">GENERAL</span>
                         <span class="scramble bg-gradient-to-r from-[#0f62fe] to-[#78a9ff] bg-clip-text text-transparent block pb-2"
@@ -171,69 +202,73 @@
                 </div>
                 <p class="text-lg text-on-surface-variant dark:text-[#c6c6c6] max-w-xl leading-relaxed font-body">
                     Egresado de Contabilidad General con experiencia en análisis contable y asesorías tributarias a
-                    pymes. Me especializo en el cumplimiento tributario estratégico y poseo un enfoque inclusivo como
+                    pymes. Me especializo en el cumplimiento tributario corporativo y poseo un enfoque inclusivo como
                     Intérprete Avanzado de Lengua de Señas Chilena.
                 </p>
                 <div class="flex items-center gap-6 pt-6">
                     <a class="bg-primary text-white px-10 py-4 font-bold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center gap-3 magnetic-button"
                        href="#experience">
                         VER EXPERIENCIA
-                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
                     </a>
                     <div class="flex gap-5">
-                        <a class="w-12 h-12 flex items-center justify-center border border-outline-variant dark:border-[#393939] hover:bg-surface-variant dark:hover:bg-[#393939] transition-colors rounded-full"
+                        <a aria-label="Enviar email"
+                           class="w-12 h-12 flex items-center justify-center border border-outline-variant dark:border-[#393939] hover:bg-surface-variant dark:hover:bg-[#393939] transition-colors rounded-full"
                            href="mailto:bbernacastillo2005@gmail.com" title="Email">
-                            <span class="material-symbols-outlined" data-icon="mail">mail</span>
+                            <span class="material-symbols-outlined" aria-hidden="true" data-icon="mail">mail</span>
                         </a>
-                        <a class="w-12 h-12 flex items-center justify-center border border-outline-variant dark:border-[#393939] hover:bg-surface-variant dark:hover:bg-[#393939] transition-colors rounded-full"
+                        <a aria-label="Visitar perfil de LinkedIn"
+                           class="w-12 h-12 flex items-center justify-center border border-outline-variant dark:border-[#393939] hover:bg-surface-variant dark:hover:bg-[#393939] transition-colors rounded-full"
                            href="https://www.linkedin.com/in/benjamín-berna-castillo-56801629b" target="_blank"
                            title="LinkedIn">
-                            <span class="material-symbols-outlined">work</span>
+                            <span class="material-symbols-outlined" aria-hidden="true">work</span>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="order-1 md:order-2 flex justify-center md:justify-end relative">
                 <div class="relative w-full aspect-[3/4] max-w-xl bg-surface-container-high overflow-hidden shadow-2xl rounded-xl z-0 -mr-0 lg:-mr-24 group">
-                    <img alt="Benjamín Berna Castillo - Contador General Chile"
+                    <img alt="Benjamín Berna Castillo - Contador General Chile" loading="eager"
                          class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
                          src="./static/img/benjamin.png"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#001d6c]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#001d6c]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                         aria-hidden="true"></div>
 
                     <div class="glass absolute bottom-0 right-0 p-8 text-white rounded-tl-xl backdrop-blur-md border-t border-l border-white/20">
                         <span class="block text-3xl font-bold text-primary font-headline">BDO CHILE</span>
-                        <span class="text-xs uppercase tracking-widest text-[#525252] dark:text-[#c6c6c6] font-body">STAFF TAX &amp; LEGAL</span>
+                        <span class="text-xs uppercase tracking-widest text-[#393939] dark:text-[#e0e0e0] font-bold font-body">STAFF TAX &amp; LEGAL</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section
-            class="py-12 px-4 border-y border-outline-variant dark:border-[#393939] bg-surface-container-low dark:bg-[#1a1a1a] overflow-hidden">
+    <section aria-label="Stack tecnológico"
+             class="py-12 px-4 border-y border-outline-variant dark:border-[#393939] bg-surface-container-low dark:bg-[#1a1a1a] overflow-hidden">
         <div class="max-w-7xl mx-auto">
             <p class="text-center text-sm font-bold text-on-surface-variant dark:text-[#8d8d8d] uppercase tracking-[0.2em] mb-8 font-body">
                 Stack Tecnológico & Plataformas</p>
             <div class="flex flex-wrap justify-center gap-4 md:gap-8 opacity-80">
                 <span class="px-6 py-3 border border-outline-variant dark:border-[#393939] rounded-full text-on-surface dark:text-[#f4f4f4] font-semibold flex items-center gap-2 font-body"><span
-                        class="material-symbols-outlined text-primary">dns</span> SAP ERP</span>
+                        class="material-symbols-outlined text-primary" aria-hidden="true">dns</span> SAP ERP</span>
                 <span class="px-6 py-3 border border-outline-variant dark:border-[#393939] rounded-full text-on-surface dark:text-[#f4f4f4] font-semibold flex items-center gap-2 font-body"><span
-                        class="material-symbols-outlined text-primary">cloud</span> Defontana</span>
+                        class="material-symbols-outlined text-primary" aria-hidden="true">cloud</span> Defontana</span>
                 <span class="px-6 py-3 border border-outline-variant dark:border-[#393939] rounded-full text-on-surface dark:text-[#f4f4f4] font-semibold flex items-center gap-2 font-body"><span
-                        class="material-symbols-outlined text-primary">account_balance</span> Nubox</span>
+                        class="material-symbols-outlined text-primary"
+                        aria-hidden="true">account_balance</span> Nubox</span>
                 <span class="px-6 py-3 border border-outline-variant dark:border-[#393939] rounded-full text-on-surface dark:text-[#f4f4f4] font-semibold flex items-center gap-2 font-body"><span
-                        class="material-symbols-outlined text-primary">table_chart</span> Microsoft Excel</span>
+                        class="material-symbols-outlined text-primary" aria-hidden="true">table_chart</span> Microsoft Excel</span>
                 <span class="px-6 py-3 border border-outline-variant dark:border-[#393939] rounded-full text-on-surface dark:text-[#f4f4f4] font-semibold flex items-center gap-2 font-body"><span
-                        class="material-symbols-outlined text-primary">description</span> Microsoft Word</span>
+                        class="material-symbols-outlined text-primary" aria-hidden="true">description</span> Microsoft Word</span>
                 <span class="px-6 py-3 border border-outline-variant dark:border-[#393939] rounded-full text-on-surface dark:text-[#f4f4f4] font-semibold flex items-center gap-2 font-body"><span
-                        class="material-symbols-outlined text-primary">domain</span> Portal SII en línea</span>
+                        class="material-symbols-outlined text-primary" aria-hidden="true">domain</span> Portal SII en línea</span>
                 <span class="px-6 py-3 border border-outline-variant dark:border-[#393939] rounded-full text-on-surface dark:text-[#f4f4f4] font-semibold flex items-center gap-2 font-body"><span
-                        class="material-symbols-outlined text-primary">corporate_fare</span> Portal BDO</span>
+                        class="material-symbols-outlined text-primary" aria-hidden="true">corporate_fare</span> Portal BDO</span>
             </div>
         </div>
     </section>
 
-    <section class="py-16 px-4 bg-surface dark:bg-[#161616]" id="metrics">
+    <section class="py-16 px-4 bg-surface dark:bg-[#161616] scroll-mt-16" id="metrics" aria-label="Métricas destacadas">
         <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x-0 md:divide-x divide-outline-variant dark:divide-[#393939]">
             <div class="p-4">
                 <div class="text-4xl md:text-5xl font-headline font-bold text-primary mb-2"><span class="counter"
@@ -256,7 +291,7 @@
                                                                                                   data-target="100">0</span>%
                 </div>
                 <div class="text-sm font-semibold text-on-surface-variant dark:text-[#8d8d8d] uppercase tracking-widest font-body">
-                    Tax Compliance
+                    Cumplimiento Tributario
                 </div>
             </div>
             <div class="p-4">
@@ -270,16 +305,19 @@
         </div>
     </section>
 
-    <section class="py-24 px-4 md:px-16 bg-surface-container-low dark:bg-[#262626]" id="about">
+    <section class="py-24 px-4 md:px-16 bg-surface-container-low dark:bg-[#262626] scroll-mt-16" id="about"
+             aria-labelledby="about-title">
         <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-20 items-center">
             <div class="md:col-span-5 relative">
-                <img alt="Working context and inclusion" class="w-full h-[600px] object-cover rounded-xl shadow-xl"
+                <img alt="Documentos financieros sobre un escritorio corporativo" loading="lazy"
+                     class="w-full h-[600px] object-cover rounded-xl shadow-xl"
                      src="./static/img/benjamin_escritorio.png"/>
             </div>
             <div class="md:col-span-7 space-y-12">
                 <div class="space-y-5">
                     <span class="text-primary font-bold text-xs uppercase tracking-[0.2em] font-body">Sobre Mí</span>
-                    <h2 class="text-5xl md:text-7xl text-on-surface dark:text-[#f4f4f4] font-headline uppercase leading-none">
+                    <h2 id="about-title"
+                        class="text-5xl md:text-7xl text-on-surface dark:text-[#f4f4f4] font-headline uppercase leading-none">
                         Soluciones Contables<br/>& Enfoque Inclusivo
                     </h2>
                     <h3 class="text-2xl text-primary font-semibold font-body">Gran Santiago, Región Metropolitana,
@@ -287,8 +325,9 @@
                 </div>
                 <div class="space-y-8 text-on-surface-variant dark:text-[#c6c6c6] leading-relaxed text-lg font-body">
                     <p>
-                        Como profesional de la contabilidad, gestiono declaraciones y analizo el marco tributario
-                        vigente aplicando la normativa y las Normas Internacionales de Información Financiera (NIIF). Me
+                        Como profesional de la contabilidad, gestiono declaraciones y aseguro el cumplimiento tributario
+                        aplicando
+                        la normativa vigente y las Normas Internacionales de Información Financiera (NIIF). Me
                         caracterizo por mi responsabilidad, puntualidad y vocación por el aprendizaje continuo para
                         brindar asesorías precisas a los clientes.
                     </p>
@@ -301,25 +340,29 @@
                 <div class="pt-8 border-t border-outline-variant dark:border-[#393939]">
                     <a class="bg-primary text-white px-12 py-5 font-bold flex items-center gap-4 hover:shadow-2xl hover:scale-105 transition-all group rounded-lg magnetic-button inline-flex"
                        href="mailto:bbernacastillo2005@gmail.com?subject=Solicitud%20CV%20-%20Benjamín%20Berna">
-                        <span class="material-symbols-outlined" data-icon="mail">mail</span> CONTACTAR PARA CV
+                        <span class="material-symbols-outlined" aria-hidden="true" data-icon="mail">mail</span>
+                        CONTACTAR PARA CV
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-4 md:px-16 bg-surface dark:bg-[#161616]" id="skills">
+    <section class="py-24 px-4 md:px-16 bg-surface dark:bg-[#161616] scroll-mt-16" id="skills"
+             aria-labelledby="skills-title">
         <div class="max-w-7xl mx-auto">
             <div class="mb-20 text-center">
                 <span class="text-primary font-bold text-xs uppercase tracking-[0.2em] font-body">Competencias</span>
-                <h2 class="text-5xl md:text-6xl mt-3 font-headline uppercase text-on-surface dark:text-[#f4f4f4]">Mis
+                <h2 id="skills-title"
+                    class="text-5xl md:text-6xl mt-3 font-headline uppercase text-on-surface dark:text-[#f4f4f4]">Mis
                     Habilidades</h2>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-surface-container-low dark:bg-[#262626] p-10 rounded-xl shadow-lg border border-outline-variant dark:border-[#393939] hover:-translate-y-2 transition-transform">
                     <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-primary text-3xl">desktop_windows</span>
+                        <span class="material-symbols-outlined text-primary text-3xl"
+                              aria-hidden="true">desktop_windows</span>
                     </div>
                     <h3 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] mb-6 font-body">Software &
                         ERP</h3>
@@ -329,7 +372,8 @@
                                 <span class="font-semibold text-on-surface dark:text-[#f4f4f4]">SAP ERP</span>
                                 <span class="text-xs text-on-surface-variant dark:text-[#c6c6c6] font-medium">35%</span>
                             </div>
-                            <div class="w-full bg-outline-variant dark:bg-[#393939] h-2 rounded-full overflow-hidden">
+                            <div class="w-full bg-outline-variant dark:bg-[#393939] h-2 rounded-full overflow-hidden"
+                                 role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
                                 <div class="bg-primary h-full w-0 transition-all duration-1000 ease-out skill-bar"
                                      data-width="35%"></div>
                             </div>
@@ -339,7 +383,8 @@
                                 <span class="font-semibold text-on-surface dark:text-[#f4f4f4]">Defontana</span>
                                 <span class="text-xs text-on-surface-variant dark:text-[#c6c6c6] font-medium">60%</span>
                             </div>
-                            <div class="w-full bg-outline-variant dark:bg-[#393939] h-2 rounded-full overflow-hidden">
+                            <div class="w-full bg-outline-variant dark:bg-[#393939] h-2 rounded-full overflow-hidden"
+                                 role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
                                 <div class="bg-primary h-full w-0 transition-all duration-1000 ease-out skill-bar"
                                      data-width="60%"></div>
                             </div>
@@ -349,7 +394,8 @@
                                 <span class="font-semibold text-on-surface dark:text-[#f4f4f4]">Nubox</span>
                                 <span class="text-xs text-on-surface-variant dark:text-[#c6c6c6] font-medium">60%</span>
                             </div>
-                            <div class="w-full bg-outline-variant dark:bg-[#393939] h-2 rounded-full overflow-hidden">
+                            <div class="w-full bg-outline-variant dark:bg-[#393939] h-2 rounded-full overflow-hidden"
+                                 role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
                                 <div class="bg-primary h-full w-0 transition-all duration-1000 ease-out skill-bar"
                                      data-width="60%"></div>
                             </div>
@@ -359,7 +405,8 @@
                                 <span class="font-semibold text-on-surface dark:text-[#f4f4f4]">Microsoft Excel</span>
                                 <span class="text-xs text-on-surface-variant dark:text-[#c6c6c6] font-medium">85%</span>
                             </div>
-                            <div class="w-full bg-outline-variant dark:bg-[#393939] h-2 rounded-full overflow-hidden">
+                            <div class="w-full bg-outline-variant dark:bg-[#393939] h-2 rounded-full overflow-hidden"
+                                 role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
                                 <div class="bg-primary h-full w-0 transition-all duration-1000 ease-out skill-bar"
                                      data-width="85%"></div>
                             </div>
@@ -369,7 +416,8 @@
 
                 <div class="bg-surface-container-low dark:bg-[#262626] p-10 rounded-xl shadow-lg border border-outline-variant dark:border-[#393939] hover:-translate-y-2 transition-transform">
                     <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-primary text-3xl">request_quote</span>
+                        <span class="material-symbols-outlined text-primary text-3xl"
+                              aria-hidden="true">request_quote</span>
                     </div>
                     <h3 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] mb-6 font-body">Área
                         Tributaria</h3>
@@ -380,18 +428,18 @@
                         <span class="bg-surface dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">NIIF / IFRS</span>
                         <span class="bg-surface dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">Conciliación Bancaria</span>
                         <span class="bg-surface dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">Normativa SII</span>
-                        <span class="bg-primary text-white px-4 py-2 rounded-lg font-medium text-sm shadow-md">Tax Compliance</span>
+                        <span class="bg-primary text-white px-4 py-2 rounded-lg font-medium text-sm shadow-md">Cumplimiento Tributario</span>
                     </div>
                 </div>
 
                 <div class="bg-surface-container-low dark:bg-[#262626] p-10 rounded-xl shadow-lg border border-outline-variant dark:border-[#393939] hover:-translate-y-2 transition-transform">
                     <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-primary text-3xl">forum</span>
+                        <span class="material-symbols-outlined text-primary text-3xl" aria-hidden="true">forum</span>
                     </div>
                     <h3 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] mb-6 font-body">Comunicación</h3>
                     <ul class="space-y-4 font-body">
                         <li class="flex items-center gap-3">
-                            <span class="material-symbols-outlined text-primary">sign_language</span>
+                            <span class="material-symbols-outlined text-primary" aria-hidden="true">sign_language</span>
                             <div>
                                 <p class="font-bold text-on-surface dark:text-[#f4f4f4]">Lengua de Señas Chilena
                                     (LSCh)</p>
@@ -399,21 +447,21 @@
                             </div>
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="material-symbols-outlined text-outline dark:text-[#8d8d8d]">language</span>
+                            <span class="material-symbols-outlined text-outline dark:text-[#8d8d8d]" aria-hidden="true">language</span>
                             <div>
                                 <p class="font-bold text-on-surface dark:text-[#f4f4f4]">Español</p>
                                 <p class="text-sm text-on-surface-variant dark:text-[#c6c6c6]">Nativo</p>
                             </div>
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="material-symbols-outlined text-outline dark:text-[#8d8d8d]">translate</span>
+                            <span class="material-symbols-outlined text-outline dark:text-[#8d8d8d]" aria-hidden="true">translate</span>
                             <div>
                                 <p class="font-bold text-on-surface dark:text-[#f4f4f4]">Inglés</p>
                                 <p class="text-sm text-on-surface-variant dark:text-[#c6c6c6]">Intermedio</p>
                             </div>
                         </li>
                         <li class="flex items-center gap-3 pt-4 border-t border-outline-variant dark:border-[#393939]">
-                            <span class="material-symbols-outlined text-primary">groups</span>
+                            <span class="material-symbols-outlined text-primary" aria-hidden="true">groups</span>
                             <span class="font-bold text-on-surface dark:text-[#f4f4f4]">Mentoría entre iguales</span>
                         </li>
                     </ul>
@@ -422,11 +470,13 @@
         </div>
     </section>
 
-    <section class="py-24 px-4 md:px-16 bg-surface-container-low dark:bg-[#262626]" id="experience">
+    <section class="py-24 px-4 md:px-16 bg-surface-container-low dark:bg-[#262626] scroll-mt-16" id="experience"
+             aria-labelledby="experience-title">
         <div class="max-w-7xl mx-auto">
             <div class="mb-20 text-center">
                 <span class="text-primary font-bold text-xs uppercase tracking-[0.2em] font-body">Trayectoria</span>
-                <h2 class="text-5xl md:text-6xl mt-3 font-headline uppercase text-on-surface dark:text-[#f4f4f4]">Mi
+                <h2 id="experience-title"
+                    class="text-5xl md:text-6xl mt-3 font-headline uppercase text-on-surface dark:text-[#f4f4f4]">Mi
                     Experiencia Profesional</h2>
             </div>
 
@@ -500,11 +550,13 @@
         </div>
     </section>
 
-    <section class="py-24 px-4 md:px-16 bg-surface dark:bg-[#161616]" id="education">
+    <section class="py-24 px-4 md:px-16 bg-surface dark:bg-[#161616] scroll-mt-16" id="education"
+             aria-labelledby="education-title">
         <div class="max-w-7xl mx-auto">
             <div class="mb-20 text-center">
                 <span class="text-primary font-bold text-xs uppercase tracking-[0.2em] font-body">Credenciales</span>
-                <h2 class="text-5xl md:text-6xl mt-3 font-headline uppercase text-on-surface dark:text-[#f4f4f4]">
+                <h2 id="education-title"
+                    class="text-5xl md:text-6xl mt-3 font-headline uppercase text-on-surface dark:text-[#f4f4f4]">
                     Formación Académica</h2>
             </div>
 
@@ -517,7 +569,8 @@
                         </div>
                         <div class="md:col-span-1 bg-surface-container-low dark:bg-[#262626] p-10 rounded-xl shadow border border-outline-variant dark:border-[#393939] hover:-translate-y-1 transition-transform space-y-3">
                             <div class="flex items-center gap-3 mb-2">
-                                <span class="material-symbols-outlined text-primary text-3xl">school</span>
+                                <span class="material-symbols-outlined text-primary text-3xl"
+                                      aria-hidden="true">school</span>
                                 <h4 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] font-body">Técnico de
                                     Nivel Superior en Contabilidad General</h4>
                             </div>
@@ -538,7 +591,7 @@
                         </div>
                         <div class="md:col-span-1 bg-surface-container-low dark:bg-[#262626] p-10 rounded-xl shadow border border-outline-variant dark:border-[#393939] hover:-translate-y-1 transition-transform space-y-3">
                             <div class="flex items-center gap-3 mb-2">
-                                <span class="material-symbols-outlined text-primary text-3xl">verified</span>
+                                <span class="material-symbols-outlined text-primary text-3xl" aria-hidden="true">verified</span>
                                 <h4 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] font-body">3° Nivel de
                                     Lengua de Señas Chilena "Avanzado"</h4>
                             </div>
@@ -558,7 +611,8 @@
                         </div>
                         <div class="md:col-span-1 bg-surface-container-low dark:bg-[#262626] p-10 rounded-xl shadow border border-outline-variant dark:border-[#393939] hover:-translate-y-1 transition-transform space-y-3">
                             <div class="flex items-center gap-3 mb-2">
-                                <span class="material-symbols-outlined text-outline dark:text-[#8d8d8d] text-3xl">history_edu</span>
+                                <span class="material-symbols-outlined text-outline dark:text-[#8d8d8d] text-3xl"
+                                      aria-hidden="true">history_edu</span>
                                 <h4 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] font-body">Técnico de
                                     Nivel Medio en Contabilidad</h4>
                             </div>
@@ -572,19 +626,19 @@
         </div>
     </section>
 
-    <section
-            class="relative bg-gradient-to-br from-[#001d6c] to-[#161616] text-white py-24 px-4 text-center overflow-hidden">
+    <section id="cta" aria-labelledby="cta-title"
+             class="relative bg-gradient-to-br from-[#001d6c] to-[#161616] text-white py-24 px-4 text-center overflow-hidden scroll-mt-16">
         <div class="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
 
-            <div class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-medium mb-8 backdrop-blur-sm font-body shadow-sm text-white">
-                <span class="relative flex h-3 w-3">
+            <div class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-medium mb-8 backdrop-blur-sm font-body shadow-sm text-white transition-colors">
+                <span class="relative flex h-3 w-3" aria-hidden="true">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#78a9ff] opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-3 w-3 bg-[#78a9ff]"></span>
                 </span>
                 Disponible para nuevas oportunidades
             </div>
 
-            <h2 class="text-4xl md:text-6xl font-headline uppercase leading-none mb-8">
+            <h2 id="cta-title" class="text-4xl md:text-6xl font-headline uppercase leading-none mb-8">
                 ¿BUSCA UN PERFIL CONTABLE<br/>
                 CON ENFOQUE <span class="text-[#78a9ff]">INCLUSIVO?</span>
             </h2>
@@ -595,10 +649,17 @@
             </p>
 
             <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <a class="border-2 border-[#78a9ff] text-[#78a9ff] px-10 py-4 font-bold rounded-lg hover:bg-[#78a9ff] hover:text-[#161616] hover:scale-105 transition-all flex items-center justify-center gap-3 magnetic-button font-body"
+                   href="./static/CV_Benjamin_Berna.pdf" download>
+                    <span class="material-symbols-outlined" aria-hidden="true">download</span>
+                    DESCARGAR CV (PDF)
+                </a>
+
                 <a class="bg-primary text-white px-10 py-4 font-bold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center gap-3 magnetic-button font-body"
                    href="mailto:bbernacastillo2005@gmail.com">
                     CONTÁCTAME POR EMAIL
                 </a>
+
                 <a class="border-2 border-white text-white px-10 py-4 font-bold rounded-lg hover:bg-white hover:text-[#001d6c] hover:scale-105 transition-all flex items-center justify-center gap-3 magnetic-button font-body"
                    href="https://www.linkedin.com/in/benjamín-berna-castillo-56801629b" target="_blank">
                     CONECTAR EN LINKEDIN
@@ -608,7 +669,7 @@
     </section>
 </main>
 
-<footer class="bg-[#f4f4f4] dark:bg-[#161616] border-t border-[#e0e0e0] dark:border-[#393939] w-full py-10 px-4 md:px-16 flex flex-col md:flex-row justify-between items-center gap-6 font-['IBM_Plex_Sans'] text-[12px] text-[#525252] dark:text-[#c6c6c6]">
+<footer class="bg-[#f4f4f4] dark:bg-[#161616] border-t border-[#e0e0e0] dark:border-[#393939] w-full py-10 px-4 md:px-16 flex flex-col md:flex-row justify-between items-center gap-6 font-['IBM_Plex_Sans'] text-[12px] text-[#4a4a4a] dark:text-[#c6c6c6]">
     <div class="text-sm font-bold text-[#161616] dark:text-[#f4f4f4]">
         Benjamín Berna Castillo
     </div>
@@ -616,16 +677,19 @@
         © <span id="year"></span> Benjamín Berna Castillo. Todos los derechos reservados.
     </div>
     <div class="flex gap-6 flex-wrap justify-center">
-        <a class="text-[#525252] dark:text-[#a8a8a8] hover:underline hover:text-[#0f62fe] dark:hover:text-[#78a9ff]"
+        <a class="text-[#4a4a4a] dark:text-[#a8a8a8] hover:underline hover:text-[#0f62fe] dark:hover:text-[#78a9ff]"
            href="https://www.linkedin.com/in/benjamín-berna-castillo-56801629b" target="_blank">LinkedIn</a>
-        <a class="text-[#525252] dark:text-[#a8a8a8] hover:underline hover:text-[#0f62fe] dark:hover:text-[#78a9ff]"
+        <a class="text-[#4a4a4a] dark:text-[#a8a8a8] hover:underline hover:text-[#0f62fe] dark:hover:text-[#78a9ff]"
            href="mailto:bbernacastillo2005@gmail.com">Email</a>
-        <a class="text-[#525252] dark:text-[#a8a8a8] hover:underline hover:text-[#0f62fe] dark:hover:text-[#78a9ff]"
-           href="#">Lengua de Señas Chilena (LSCh)</a>
+        <a class="text-[#4a4a4a] dark:text-[#a8a8a8] hover:underline hover:text-[#0f62fe] dark:hover:text-[#78a9ff]"
+           href="https://esilense.cl/" target="_blank">Lengua de Señas Chilena (LSCh)</a>
     </div>
 </footer>
 
 <script>
+    // --- Comprobar configuración de accesibilidad (Motion) ---
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // --- Utilidades Básicas ---
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -661,14 +725,18 @@
 
     function toggleMobileMenu() {
         isMobileMenuOpen = !isMobileMenuOpen;
+        mobileMenuBtn.setAttribute('aria-expanded', isMobileMenuOpen);
+
         if (isMobileMenuOpen) {
             mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
             mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            mobileMenu.setAttribute('aria-hidden', 'false');
             mobileMenuIcon.textContent = 'close';
             document.body.style.overflow = 'hidden';
         } else {
             mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
             mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            mobileMenu.setAttribute('aria-hidden', 'true');
             mobileMenuIcon.textContent = 'menu';
             document.body.style.overflow = '';
         }
@@ -676,6 +744,38 @@
 
     mobileMenuBtn.addEventListener('click', toggleMobileMenu);
     mobileLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
+
+    // --- Active Section Highlighting en el Nav (Plan 6 - Tarea 3) ---
+    const sectionsWithId = document.querySelectorAll('section[id]');
+    const desktopNavLinks = document.querySelectorAll('.nav-link-desktop');
+
+    const navObserverOptions = {
+        root: null,
+        rootMargin: '-20% 0px -70% 0px', // Ajusta cuándo se considera que la sección está activa
+        threshold: 0
+    };
+
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const currentId = entry.target.id;
+
+                desktopNavLinks.forEach(link => {
+                    // Remover estado activo de todos
+                    link.classList.remove('text-[#0f62fe]', 'dark:text-[#78a9ff]', 'border-[#0f62fe]', 'dark:border-[#78a9ff]');
+                    link.classList.add('text-[#4a4a4a]', 'dark:text-[#c6c6c6]', 'border-transparent');
+
+                    // Añadir estado activo al actual
+                    if (link.getAttribute('href') === `#${currentId}`) {
+                        link.classList.remove('text-[#4a4a4a]', 'dark:text-[#c6c6c6]', 'border-transparent');
+                        link.classList.add('text-[#0f62fe]', 'dark:text-[#78a9ff]', 'border-[#0f62fe]', 'dark:border-[#78a9ff]');
+                    }
+                });
+            }
+        });
+    }, navObserverOptions);
+
+    sectionsWithId.forEach(section => navObserver.observe(section));
 
     // --- Barra de Scroll en el Nav ---
     const scrollProgress = document.getElementById('scroll-progress');
@@ -690,6 +790,8 @@
     const scrambleLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*";
 
     function scrambleText(element) {
+        if (prefersReducedMotion) return; // Accesibilidad
+
         const originalText = element.getAttribute('data-value');
         let iterations = 0;
         const interval = setInterval(() => {
@@ -698,16 +800,16 @@
                 return scrambleLetters[Math.floor(Math.random() * scrambleLetters.length)];
             }).join("");
             if (iterations >= originalText.length) clearInterval(interval);
-            iterations += 1 / 3; // Velocidad de resolución
+            iterations += 1 / 3;
         }, 30);
     }
 
-    // Ejecutar al cargar la página
     window.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.scramble').forEach(el => scrambleText(el));
     });
 
-    // --- Intersection Observers: Reveal, Stagger, Counters y Barras de Progreso ---
+    // --- Intersection Observers de Animación ---
+
     // 1. Reveal General
     const revealOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -720,35 +822,46 @@
     }, {threshold: 0.1});
 
     document.querySelectorAll('section:not(#hero, #experience, #education)').forEach(section => {
-        section.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000', 'ease-out');
-        revealOnScroll.observe(section);
+        if (!prefersReducedMotion) {
+            section.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000', 'ease-out');
+            revealOnScroll.observe(section);
+        }
     });
 
-    // 2. Stagger Animations para Tarjetas (Experiencia y Educación)
+    // 2. Stagger Animations para Tarjetas
     const staggerCards = document.querySelectorAll('.stagger-card');
     staggerCards.forEach((card, index) => {
-        // Agregamos clases de transición por defecto al HTML de la tarjeta y aquí seteamos el delay
-        card.classList.add('transition-all', 'duration-700', 'ease-out');
-        // Usar el índice relativo a la sección para el escalonamiento (opcional, aquí es secuencial global)
-        card.style.transitionDelay = `${(index % 4) * 120}ms`;
-        revealOnScroll.observe(card);
+        if (!prefersReducedMotion) {
+            card.classList.add('transition-all', 'duration-700', 'ease-out');
+            card.style.transitionDelay = `${(index % 4) * 120}ms`;
+            revealOnScroll.observe(card);
+        } else {
+            card.classList.remove('opacity-0', 'translate-y-10');
+        }
     });
 
-    // 3. Contadores Animados (Sección Métricas)
+    // 3. Contadores Animados
     const counters = document.querySelectorAll('.counter');
     const counterObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const counter = entry.target;
                 const target = +counter.getAttribute('data-target');
-                const duration = 1200; // 1.2 segundos
+
+                if (prefersReducedMotion) {
+                    counter.innerText = target;
+                    observer.unobserve(counter);
+                    return;
+                }
+
+                const duration = 1200;
                 const startTime = performance.now();
 
                 const updateCounter = (currentTime) => {
                     const elapsedTime = currentTime - startTime;
                     if (elapsedTime < duration) {
                         const progress = elapsedTime / duration;
-                        const easeOut = progress * (2 - progress); // ease-out quad curve
+                        const easeOut = progress * (2 - progress);
                         counter.innerText = Math.ceil(target * easeOut);
                         requestAnimationFrame(updateCounter);
                     } else {
@@ -762,11 +875,14 @@
     }, {threshold: 0.1});
     counters.forEach(counter => counterObserver.observe(counter));
 
-    // 4. Barras de Progreso (Habilidades)
+    // 4. Barras de Progreso
     const skillBars = document.querySelectorAll('.skill-bar');
     const skillObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                if (prefersReducedMotion) {
+                    entry.target.style.transition = 'none';
+                }
                 entry.target.style.width = entry.target.getAttribute('data-width');
                 observer.unobserve(entry.target);
             }
@@ -775,23 +891,25 @@
     skillBars.forEach(bar => skillObserver.observe(bar));
 
     // --- Efecto Botón Magnético ---
-    const magneticButtons = document.querySelectorAll('.magnetic-button');
-    magneticButtons.forEach(button => {
-        button.addEventListener('mousemove', e => {
-            const rect = button.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const deltaX = x - centerX;
-            const deltaY = y - centerY;
-            button.style.transform = `translate(${deltaX * 0.2}px, ${deltaY * 0.2}px) scale(1.05)`;
-        });
+    if (!prefersReducedMotion) {
+        const magneticButtons = document.querySelectorAll('.magnetic-button');
+        magneticButtons.forEach(button => {
+            button.addEventListener('mousemove', e => {
+                const rect = button.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const deltaX = x - centerX;
+                const deltaY = y - centerY;
+                button.style.transform = `translate(${deltaX * 0.2}px, ${deltaY * 0.2}px) scale(1.05)`;
+            });
 
-        button.addEventListener('mouseleave', () => {
-            button.style.transform = 'translate(0, 0) scale(1)';
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'translate(0, 0) scale(1)';
+            });
         });
-    });
+    }
 </script>
 </body>
 </html>
