@@ -73,7 +73,6 @@
             border-bottom-color: rgba(57, 57, 57, 0.8);
         }
 
-        /* Animación directa para la sección Hero al cargar */
         @keyframes fadeInUpHero {
             from {
                 opacity: 0;
@@ -89,7 +88,6 @@
             animation: fadeInUpHero 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Scrollbar styling for tech stack */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -145,6 +143,9 @@
         <a class="text-3xl font-semibold text-[#525252] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#f4f4f4] transition-colors mobile-link"
            href="#education">Educación</a>
     </div>
+
+    <div id="scroll-progress"
+         class="absolute bottom-0 left-0 h-[2px] bg-primary w-0 transition-all duration-75 ease-out"></div>
 </nav>
 
 <main class="space-y-0">
@@ -156,11 +157,16 @@
         <div class="grid md:grid-cols-2 gap-20 items-center w-full max-w-7xl mx-auto relative z-10">
             <div class="order-2 md:order-1 space-y-8">
                 <div class="space-y-4">
-                    <p class="text-primary font-semibold tracking-widest text-sm uppercase">¡Hola! Soy Benjamín Berna
+
+                    <p class="text-primary font-semibold tracking-widest text-sm uppercase block">¡Hola! Soy Benjamín
+                        Berna
                         Castillo</p>
+
                     <h1 class="text-5xl md:text-8xl font-bold text-on-surface dark:text-[#f4f4f4] leading-none font-headline">
-                        CONTADOR<br/>GENERAL<br/>
-                        <span class="bg-gradient-to-r from-[#0f62fe] to-[#78a9ff] bg-clip-text text-transparent">TITULADO</span>
+                        <span class="scramble block" data-value="CONTADOR">CONTADOR</span>
+                        <span class="scramble block" data-value="GENERAL">GENERAL</span>
+                        <span class="scramble bg-gradient-to-r from-[#0f62fe] to-[#78a9ff] bg-clip-text text-transparent block pb-2"
+                              data-value="TITULADO">TITULADO</span>
                     </h1>
                 </div>
                 <p class="text-lg text-on-surface-variant dark:text-[#c6c6c6] max-w-xl leading-relaxed font-body">
@@ -188,11 +194,13 @@
                 </div>
             </div>
             <div class="order-1 md:order-2 flex justify-center md:justify-end relative">
-                <div class="relative w-full aspect-[3/4] max-w-xl bg-surface-container-high overflow-hidden shadow-2xl rounded-xl z-0 -mr-0 lg:-mr-24">
+                <div class="relative w-full aspect-[3/4] max-w-xl bg-surface-container-high overflow-hidden shadow-2xl rounded-xl z-0 -mr-0 lg:-mr-24 group">
                     <img alt="Benjamín Berna Castillo - Contador General Chile"
-                         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                         class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
                          src="./static/img/benjamin.png"/>
-                    <div class="glass absolute bottom-0 right-0 p-8 text-white rounded-tl-xl backdrop-blur-md">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#001d6c]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+
+                    <div class="glass absolute bottom-0 right-0 p-8 text-white rounded-tl-xl backdrop-blur-md border-t border-l border-white/20">
                         <span class="block text-3xl font-bold text-primary font-headline">BDO CHILE</span>
                         <span class="text-xs uppercase tracking-widest text-[#525252] dark:text-[#c6c6c6] font-body">STAFF TAX &amp; LEGAL</span>
                     </div>
@@ -225,7 +233,44 @@
         </div>
     </section>
 
-    <section class="py-24 px-4 md:px-16 bg-surface dark:bg-[#161616]" id="about">
+    <section class="py-16 px-4 bg-surface dark:bg-[#161616]" id="metrics">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x-0 md:divide-x divide-outline-variant dark:divide-[#393939]">
+            <div class="p-4">
+                <div class="text-4xl md:text-5xl font-headline font-bold text-primary mb-2"><span class="counter"
+                                                                                                  data-target="3">0</span>+
+                </div>
+                <div class="text-sm font-semibold text-on-surface-variant dark:text-[#8d8d8d] uppercase tracking-widest font-body">
+                    Años Experiencia
+                </div>
+            </div>
+            <div class="p-4">
+                <div class="text-4xl md:text-5xl font-headline font-bold text-primary mb-2"><span class="counter"
+                                                                                                  data-target="150">0</span>+
+                </div>
+                <div class="text-sm font-semibold text-on-surface-variant dark:text-[#8d8d8d] uppercase tracking-widest font-body">
+                    Análisis Cuentas
+                </div>
+            </div>
+            <div class="p-4">
+                <div class="text-4xl md:text-5xl font-headline font-bold text-primary mb-2"><span class="counter"
+                                                                                                  data-target="100">0</span>%
+                </div>
+                <div class="text-sm font-semibold text-on-surface-variant dark:text-[#8d8d8d] uppercase tracking-widest font-body">
+                    Tax Compliance
+                </div>
+            </div>
+            <div class="p-4">
+                <div class="text-4xl md:text-5xl font-headline font-bold text-primary mb-2"><span class="counter"
+                                                                                                  data-target="500">0</span>+
+                </div>
+                <div class="text-sm font-semibold text-on-surface-variant dark:text-[#8d8d8d] uppercase tracking-widest font-body">
+                    Horas LSCh
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-4 md:px-16 bg-surface-container-low dark:bg-[#262626]" id="about">
         <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-20 items-center">
             <div class="md:col-span-5 relative">
                 <img alt="Working context and inclusion" class="w-full h-[600px] object-cover rounded-xl shadow-xl"
@@ -263,7 +308,7 @@
         </div>
     </section>
 
-    <section class="py-24 px-4 md:px-16 bg-surface-container-low dark:bg-[#262626]" id="skills">
+    <section class="py-24 px-4 md:px-16 bg-surface dark:bg-[#161616]" id="skills">
         <div class="max-w-7xl mx-auto">
             <div class="mb-20 text-center">
                 <span class="text-primary font-bold text-xs uppercase tracking-[0.2em] font-body">Competencias</span>
@@ -272,50 +317,74 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-surface dark:bg-[#161616] p-10 rounded-xl shadow-lg border border-outline-variant dark:border-[#393939] hover:-translate-y-2 transition-transform">
+                <div class="bg-surface-container-low dark:bg-[#262626] p-10 rounded-xl shadow-lg border border-outline-variant dark:border-[#393939] hover:-translate-y-2 transition-transform">
                     <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
                         <span class="material-symbols-outlined text-primary text-3xl">desktop_windows</span>
                     </div>
                     <h3 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] mb-6 font-body">Software &
                         ERP</h3>
-                    <ul class="space-y-4 font-body">
-                        <li class="flex justify-between items-center border-b border-outline-variant dark:border-[#393939] pb-2">
-                            <span class="font-semibold text-on-surface dark:text-[#f4f4f4]">SAP ERP</span>
-                            <span class="text-xs bg-surface-container-high dark:bg-[#393939] px-2 py-1 rounded text-on-surface-variant dark:text-[#c6c6c6]">Nivel Inicial</span>
+                    <ul class="space-y-5 font-body">
+                        <li>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold text-on-surface dark:text-[#f4f4f4]">SAP ERP</span>
+                                <span class="text-xs text-on-surface-variant dark:text-[#c6c6c6] font-medium">35%</span>
+                            </div>
+                            <div class="w-full bg-outline-variant dark:bg-[#393939] h-2 rounded-full overflow-hidden">
+                                <div class="bg-primary h-full w-0 transition-all duration-1000 ease-out skill-bar"
+                                     data-width="35%"></div>
+                            </div>
                         </li>
-                        <li class="flex justify-between items-center border-b border-outline-variant dark:border-[#393939] pb-2">
-                            <span class="font-semibold text-on-surface dark:text-[#f4f4f4]">Defontana</span>
-                            <span class="text-xs bg-surface-container-high dark:bg-[#393939] px-2 py-1 rounded text-on-surface-variant dark:text-[#c6c6c6]">Intermedio</span>
+                        <li>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold text-on-surface dark:text-[#f4f4f4]">Defontana</span>
+                                <span class="text-xs text-on-surface-variant dark:text-[#c6c6c6] font-medium">60%</span>
+                            </div>
+                            <div class="w-full bg-outline-variant dark:bg-[#393939] h-2 rounded-full overflow-hidden">
+                                <div class="bg-primary h-full w-0 transition-all duration-1000 ease-out skill-bar"
+                                     data-width="60%"></div>
+                            </div>
                         </li>
-                        <li class="flex justify-between items-center border-b border-outline-variant dark:border-[#393939] pb-2">
-                            <span class="font-semibold text-on-surface dark:text-[#f4f4f4]">Nubox</span>
-                            <span class="text-xs bg-surface-container-high dark:bg-[#393939] px-2 py-1 rounded text-on-surface-variant dark:text-[#c6c6c6]">Intermedio</span>
+                        <li>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold text-on-surface dark:text-[#f4f4f4]">Nubox</span>
+                                <span class="text-xs text-on-surface-variant dark:text-[#c6c6c6] font-medium">60%</span>
+                            </div>
+                            <div class="w-full bg-outline-variant dark:bg-[#393939] h-2 rounded-full overflow-hidden">
+                                <div class="bg-primary h-full w-0 transition-all duration-1000 ease-out skill-bar"
+                                     data-width="60%"></div>
+                            </div>
                         </li>
-                        <li class="flex justify-between items-center pb-2">
-                            <span class="font-semibold text-on-surface dark:text-[#f4f4f4]">Microsoft Excel</span>
-                            <span class="text-xs bg-surface-container-high dark:bg-[#393939] px-2 py-1 rounded text-on-surface-variant dark:text-[#c6c6c6]">Avanzado</span>
+                        <li>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold text-on-surface dark:text-[#f4f4f4]">Microsoft Excel</span>
+                                <span class="text-xs text-on-surface-variant dark:text-[#c6c6c6] font-medium">85%</span>
+                            </div>
+                            <div class="w-full bg-outline-variant dark:bg-[#393939] h-2 rounded-full overflow-hidden">
+                                <div class="bg-primary h-full w-0 transition-all duration-1000 ease-out skill-bar"
+                                     data-width="85%"></div>
+                            </div>
                         </li>
                     </ul>
                 </div>
 
-                <div class="bg-surface dark:bg-[#161616] p-10 rounded-xl shadow-lg border border-outline-variant dark:border-[#393939] hover:-translate-y-2 transition-transform">
+                <div class="bg-surface-container-low dark:bg-[#262626] p-10 rounded-xl shadow-lg border border-outline-variant dark:border-[#393939] hover:-translate-y-2 transition-transform">
                     <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
                         <span class="material-symbols-outlined text-primary text-3xl">request_quote</span>
                     </div>
                     <h3 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] mb-6 font-body">Área
                         Tributaria</h3>
                     <div class="flex flex-wrap gap-2 font-body">
-                        <span class="bg-surface-container-low dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">Formulario 29</span>
-                        <span class="bg-surface-container-low dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">Operación Renta</span>
-                        <span class="bg-surface-container-low dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">IVA</span>
-                        <span class="bg-surface-container-low dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">NIIF / IFRS</span>
-                        <span class="bg-surface-container-low dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">Conciliación Bancaria</span>
-                        <span class="bg-surface-container-low dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">Normativa SII</span>
-                        <span class="bg-primary text-white px-4 py-2 rounded-lg font-medium text-sm">Tax Compliance</span>
+                        <span class="bg-surface dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">Formulario 29</span>
+                        <span class="bg-surface dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">Operación Renta</span>
+                        <span class="bg-surface dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">IVA</span>
+                        <span class="bg-surface dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">NIIF / IFRS</span>
+                        <span class="bg-surface dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">Conciliación Bancaria</span>
+                        <span class="bg-surface dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">Normativa SII</span>
+                        <span class="bg-primary text-white px-4 py-2 rounded-lg font-medium text-sm shadow-md">Tax Compliance</span>
                     </div>
                 </div>
 
-                <div class="bg-surface dark:bg-[#161616] p-10 rounded-xl shadow-lg border border-outline-variant dark:border-[#393939] hover:-translate-y-2 transition-transform">
+                <div class="bg-surface-container-low dark:bg-[#262626] p-10 rounded-xl shadow-lg border border-outline-variant dark:border-[#393939] hover:-translate-y-2 transition-transform">
                     <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
                         <span class="material-symbols-outlined text-primary text-3xl">forum</span>
                     </div>
@@ -353,7 +422,7 @@
         </div>
     </section>
 
-    <section class="py-24 px-4 md:px-16 bg-surface dark:bg-[#161616]" id="experience">
+    <section class="py-24 px-4 md:px-16 bg-surface-container-low dark:bg-[#262626]" id="experience">
         <div class="max-w-7xl mx-auto">
             <div class="mb-20 text-center">
                 <span class="text-primary font-bold text-xs uppercase tracking-[0.2em] font-body">Trayectoria</span>
@@ -361,14 +430,15 @@
                     Experiencia Profesional</h2>
             </div>
 
-            <div class="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:w-0.5 before:bg-outline-variant dark:before:bg-[#393939] md:before:ml-[223px] md:before:mr-auto">
-                <div class="relative flex items-center md:justify-center group">
+            <div class="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:w-0.5 before:bg-outline-variant dark:before:bg-[#393939] md:before:ml-[223px] md:before:mr-auto overflow-hidden px-2 pb-4">
+
+                <div class="relative flex items-center md:justify-center group stagger-card opacity-0 translate-y-10">
                     <div class="flex flex-col md:flex-row md:items-start w-full md:grid md:grid-cols-[200px,1fr] gap-8">
                         <div class="md:col-span-1 text-left md:text-right pt-8 pr-12 font-body">
                             <span class="text-primary font-bold text-xl block">2025 - Actual</span>
                             <p class="text-xs text-on-surface-variant dark:text-[#c6c6c6]">Las Condes, RM, Chile</p>
                         </div>
-                        <div class="md:col-span-1 bg-surface-container-low dark:bg-[#262626] p-10 rounded-xl shadow-lg hover:shadow-2xl transition-all space-y-4 border border-outline-variant dark:border-[#393939] dark:hover:border-primary">
+                        <div class="md:col-span-1 bg-surface dark:bg-[#161616] p-10 rounded-xl shadow-lg hover:shadow-2xl transition-all space-y-4 border border-outline-variant dark:border-[#393939] dark:hover:border-primary">
                             <h4 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] group-hover:text-primary transition-colors leading-tight font-body">
                                 Staff Tax &amp; Legal</h4>
                             <p class="font-semibold text-primary text-lg font-body">BDO Chile</p>
@@ -379,18 +449,21 @@
                             </p>
                         </div>
                     </div>
-                    <div class="absolute left-0 top-1/2 -translate-y-1/2 ml-5 md:ml-[223px] -translate-x-1/2 w-4 h-4 bg-primary rounded-full group-hover:scale-150 transition-transform shadow-[0_0_10px_rgba(15,98,254,0.5)]"></div>
+                    <div class="absolute left-0 top-1/2 -translate-y-1/2 ml-5 md:ml-[223px] -translate-x-1/2 flex items-center justify-center">
+                        <span class="animate-ping absolute inline-flex h-8 w-8 rounded-full bg-primary opacity-40"></span>
+                        <span class="relative inline-flex rounded-full h-4 w-4 bg-primary shadow-[0_0_10px_rgba(15,98,254,0.5)] group-hover:scale-150 transition-transform"></span>
+                    </div>
                 </div>
 
-                <div class="relative flex items-center md:justify-center group">
+                <div class="relative flex items-center md:justify-center group stagger-card opacity-0 translate-y-10">
                     <div class="flex flex-col md:flex-row md:items-start w-full md:grid md:grid-cols-[200px,1fr] gap-8">
                         <div class="md:col-span-1 text-left md:text-right pt-8 pr-12 font-body">
                             <span class="text-on-surface-variant dark:text-[#c6c6c6] font-bold text-xl block">2024 - 2025</span>
                             <p class="text-xs text-on-surface-variant dark:text-[#c6c6c6]">Gran Santiago, RM</p>
                         </div>
-                        <div class="md:col-span-1 bg-surface-container-low dark:bg-[#262626] p-10 rounded-xl shadow-lg hover:shadow-2xl transition-all space-y-4 border border-outline-variant dark:border-[#393939] dark:hover:border-primary">
+                        <div class="md:col-span-1 bg-surface dark:bg-[#161616] p-10 rounded-xl shadow-lg hover:shadow-2xl transition-all space-y-4 border border-outline-variant dark:border-[#393939] dark:hover:border-primary">
                             <h4 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] group-hover:text-primary transition-colors leading-tight font-body">
-                                Intérprete de Lengua de Signos</h4>
+                                Intérprete de Lengua de Señas</h4>
                             <p class="font-semibold text-on-surface-variant dark:text-[#c6c6c6] text-lg font-body">Red
                                 Apis</p>
                             <p class="text-on-surface-variant dark:text-[#c6c6c6] leading-relaxed font-body">
@@ -403,13 +476,13 @@
                     <div class="absolute left-0 top-1/2 -translate-y-1/2 ml-5 md:ml-[223px] -translate-x-1/2 w-3 h-3 bg-outline dark:bg-[#525252] rounded-full group-hover:bg-primary group-hover:scale-150 transition-all"></div>
                 </div>
 
-                <div class="relative flex items-center md:justify-center group">
+                <div class="relative flex items-center md:justify-center group stagger-card opacity-0 translate-y-10">
                     <div class="flex flex-col md:flex-row md:items-start w-full md:grid md:grid-cols-[200px,1fr] gap-8">
                         <div class="md:col-span-1 text-left md:text-right pt-8 pr-12 font-body">
                             <span class="text-on-surface-variant dark:text-[#c6c6c6] font-bold text-xl block">2022 - 2023</span>
                             <p class="text-xs text-on-surface-variant dark:text-[#c6c6c6]">Las Condes, RM</p>
                         </div>
-                        <div class="md:col-span-1 bg-surface-container-low dark:bg-[#262626] p-10 rounded-xl shadow-lg hover:shadow-2xl transition-all space-y-4 border border-outline-variant dark:border-[#393939] dark:hover:border-primary">
+                        <div class="md:col-span-1 bg-surface dark:bg-[#161616] p-10 rounded-xl shadow-lg hover:shadow-2xl transition-all space-y-4 border border-outline-variant dark:border-[#393939] dark:hover:border-primary">
                             <h4 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] group-hover:text-primary transition-colors leading-tight font-body">
                                 Auxiliar Contable</h4>
                             <p class="font-semibold text-on-surface-variant dark:text-[#c6c6c6] text-lg font-body">
@@ -427,7 +500,7 @@
         </div>
     </section>
 
-    <section class="py-24 px-4 md:px-16 bg-surface-container-low dark:bg-[#262626]" id="education">
+    <section class="py-24 px-4 md:px-16 bg-surface dark:bg-[#161616]" id="education">
         <div class="max-w-7xl mx-auto">
             <div class="mb-20 text-center">
                 <span class="text-primary font-bold text-xs uppercase tracking-[0.2em] font-body">Credenciales</span>
@@ -435,14 +508,14 @@
                     Formación Académica</h2>
             </div>
 
-            <div class="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:w-0.5 before:bg-outline-variant dark:before:bg-[#393939] md:before:ml-[223px] md:before:mr-auto">
-                <div class="relative flex items-center md:justify-center group">
+            <div class="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:w-0.5 before:bg-outline-variant dark:before:bg-[#393939] md:before:ml-[223px] md:before:mr-auto overflow-hidden px-2 pb-4">
+                <div class="relative flex items-center md:justify-center group stagger-card opacity-0 translate-y-10">
                     <div class="flex flex-col md:flex-row md:items-start w-full md:grid md:grid-cols-[200px,1fr] gap-8">
                         <div class="md:col-span-1 text-left md:text-right pt-8 pr-12 font-body">
                             <span class="text-primary font-bold text-xl block">2024 - 2026</span>
                             <p class="text-xs text-on-surface-variant dark:text-[#c6c6c6]">Titulado</p>
                         </div>
-                        <div class="md:col-span-1 bg-surface dark:bg-[#161616] p-10 rounded-xl shadow border border-outline-variant dark:border-[#393939] hover:-translate-y-1 transition-transform space-y-3">
+                        <div class="md:col-span-1 bg-surface-container-low dark:bg-[#262626] p-10 rounded-xl shadow border border-outline-variant dark:border-[#393939] hover:-translate-y-1 transition-transform space-y-3">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="material-symbols-outlined text-primary text-3xl">school</span>
                                 <h4 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] font-body">Técnico de
@@ -457,13 +530,13 @@
                     <div class="absolute left-0 top-1/2 -translate-y-1/2 ml-5 md:ml-[223px] -translate-x-1/2 w-4 h-4 bg-primary rounded-full group-hover:scale-125 transition-transform"></div>
                 </div>
 
-                <div class="relative flex items-center md:justify-center group">
+                <div class="relative flex items-center md:justify-center group stagger-card opacity-0 translate-y-10">
                     <div class="flex flex-col md:flex-row md:items-start w-full md:grid md:grid-cols-[200px,1fr] gap-8">
                         <div class="md:col-span-1 text-left md:text-right pt-8 pr-12 font-body">
                             <span class="text-on-surface-variant dark:text-[#c6c6c6] font-bold text-xl block">2025</span>
                             <p class="text-xs text-on-surface-variant dark:text-[#c6c6c6]">Marzo - Julio</p>
                         </div>
-                        <div class="md:col-span-1 bg-surface dark:bg-[#161616] p-10 rounded-xl shadow border border-outline-variant dark:border-[#393939] hover:-translate-y-1 transition-transform space-y-3">
+                        <div class="md:col-span-1 bg-surface-container-low dark:bg-[#262626] p-10 rounded-xl shadow border border-outline-variant dark:border-[#393939] hover:-translate-y-1 transition-transform space-y-3">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="material-symbols-outlined text-primary text-3xl">verified</span>
                                 <h4 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] font-body">3° Nivel de
@@ -478,12 +551,12 @@
                     <div class="absolute left-0 top-1/2 -translate-y-1/2 ml-5 md:ml-[223px] -translate-x-1/2 w-3 h-3 bg-outline dark:bg-[#525252] rounded-full group-hover:bg-primary transition-colors"></div>
                 </div>
 
-                <div class="relative flex items-center md:justify-center group">
+                <div class="relative flex items-center md:justify-center group stagger-card opacity-0 translate-y-10">
                     <div class="flex flex-col md:flex-row md:items-start w-full md:grid md:grid-cols-[200px,1fr] gap-8">
                         <div class="md:col-span-1 text-left md:text-right pt-8 pr-12 font-body">
                             <span class="text-on-surface-variant dark:text-[#c6c6c6] font-bold text-xl block">2021 - 2022</span>
                         </div>
-                        <div class="md:col-span-1 bg-surface dark:bg-[#161616] p-10 rounded-xl shadow border border-outline-variant dark:border-[#393939] hover:-translate-y-1 transition-transform space-y-3">
+                        <div class="md:col-span-1 bg-surface-container-low dark:bg-[#262626] p-10 rounded-xl shadow border border-outline-variant dark:border-[#393939] hover:-translate-y-1 transition-transform space-y-3">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="material-symbols-outlined text-outline dark:text-[#8d8d8d] text-3xl">history_edu</span>
                                 <h4 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] font-body">Técnico de
@@ -503,9 +576,12 @@
             class="relative bg-gradient-to-br from-[#001d6c] to-[#161616] text-white py-24 px-4 text-center overflow-hidden">
         <div class="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
 
-            <div class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-medium mb-8 backdrop-blur-sm font-body">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#42be65] animate-pulse"></span>
-                Disponible para nuevos desafíos
+            <div class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-medium mb-8 backdrop-blur-sm font-body shadow-sm text-white">
+                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#78a9ff] opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-[#78a9ff]"></span>
+                </span>
+                Disponible para nuevas oportunidades
             </div>
 
             <h2 class="text-4xl md:text-6xl font-headline uppercase leading-none mb-8">
@@ -550,10 +626,10 @@
 </footer>
 
 <script>
-    // Dinamizar Año Footer
+    // --- Utilidades Básicas ---
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Theme Toggle Logic
+    // --- Theme Toggle ---
     const themeToggleBtn = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
     const htmlElement = document.documentElement;
@@ -576,12 +652,11 @@
         }
     });
 
-    // Mobile Menu Toggle Logic
+    // --- Menú Móvil ---
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileMenuIcon = document.getElementById('mobile-menu-icon');
     const mobileLinks = document.querySelectorAll('.mobile-link');
-
     let isMobileMenuOpen = false;
 
     function toggleMobileMenu() {
@@ -602,39 +677,114 @@
     mobileMenuBtn.addEventListener('click', toggleMobileMenu);
     mobileLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
 
-    // Scroll Reveal Logic using Intersection Observer
+    // --- Barra de Scroll en el Nav ---
+    const scrollProgress = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        scrollProgress.style.width = scrolled + "%";
+    });
+
+    // --- Efecto Scramble (H1 Hero) ---
+    const scrambleLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*";
+
+    function scrambleText(element) {
+        const originalText = element.getAttribute('data-value');
+        let iterations = 0;
+        const interval = setInterval(() => {
+            element.innerText = originalText.split("").map((letter, index) => {
+                if (index < iterations) return originalText[index];
+                return scrambleLetters[Math.floor(Math.random() * scrambleLetters.length)];
+            }).join("");
+            if (iterations >= originalText.length) clearInterval(interval);
+            iterations += 1 / 3; // Velocidad de resolución
+        }, 30);
+    }
+
+    // Ejecutar al cargar la página
+    window.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.scramble').forEach(el => scrambleText(el));
+    });
+
+    // --- Intersection Observers: Reveal, Stagger, Counters y Barras de Progreso ---
+    // 1. Reveal General
     const revealOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('opacity-100', 'translate-y-0');
+                entry.target.classList.remove('opacity-0', 'translate-y-10');
                 observer.unobserve(entry.target);
             }
         });
-    }, {
-        root: null,
-        threshold: 0.1,
-    });
+    }, {threshold: 0.1});
 
-    document.querySelectorAll('section:not(#hero)').forEach(section => {
+    document.querySelectorAll('section:not(#hero, #experience, #education)').forEach(section => {
         section.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000', 'ease-out');
         revealOnScroll.observe(section);
     });
 
-    // Magnetic Button Effect Logic
-    const magneticButtons = document.querySelectorAll('.magnetic-button');
+    // 2. Stagger Animations para Tarjetas (Experiencia y Educación)
+    const staggerCards = document.querySelectorAll('.stagger-card');
+    staggerCards.forEach((card, index) => {
+        // Agregamos clases de transición por defecto al HTML de la tarjeta y aquí seteamos el delay
+        card.classList.add('transition-all', 'duration-700', 'ease-out');
+        // Usar el índice relativo a la sección para el escalonamiento (opcional, aquí es secuencial global)
+        card.style.transitionDelay = `${(index % 4) * 120}ms`;
+        revealOnScroll.observe(card);
+    });
 
+    // 3. Contadores Animados (Sección Métricas)
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = +counter.getAttribute('data-target');
+                const duration = 1200; // 1.2 segundos
+                const startTime = performance.now();
+
+                const updateCounter = (currentTime) => {
+                    const elapsedTime = currentTime - startTime;
+                    if (elapsedTime < duration) {
+                        const progress = elapsedTime / duration;
+                        const easeOut = progress * (2 - progress); // ease-out quad curve
+                        counter.innerText = Math.ceil(target * easeOut);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                requestAnimationFrame(updateCounter);
+                observer.unobserve(counter);
+            }
+        });
+    }, {threshold: 0.1});
+    counters.forEach(counter => counterObserver.observe(counter));
+
+    // 4. Barras de Progreso (Habilidades)
+    const skillBars = document.querySelectorAll('.skill-bar');
+    const skillObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.width = entry.target.getAttribute('data-width');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {threshold: 0.1});
+    skillBars.forEach(bar => skillObserver.observe(bar));
+
+    // --- Efecto Botón Magnético ---
+    const magneticButtons = document.querySelectorAll('.magnetic-button');
     magneticButtons.forEach(button => {
         button.addEventListener('mousemove', e => {
             const rect = button.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-
             const deltaX = x - centerX;
             const deltaY = y - centerY;
-
             button.style.transform = `translate(${deltaX * 0.2}px, ${deltaY * 0.2}px) scale(1.05)`;
         });
 
