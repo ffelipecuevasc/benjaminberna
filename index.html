@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<html class="light" lang="es">
+<html lang="es">
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Benjamín Berna Castillo | Contador General TITULADO | Staff Tax Compliance BDO CHILE</title>
+
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+        } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.classList.add('light');
+        }
+    </script>
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&display=swap"
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap"
           rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"/>
+
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -26,10 +41,10 @@
                         "on-secondary-fixed-variant": "#525252",
                     },
                     fontFamily: {
-                        "headline": ["IBM Plex Sans", "sans-serif"],
-                        "body": ["IBM Plex Sans", "sans-serif"],
+                        "headline": ["'DM Serif Display'", "serif"],
+                        "body": ["'IBM Plex Sans'", "sans-serif"],
                     },
-                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem"},
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "2xl": "1rem"},
                 },
             },
         }
@@ -43,59 +58,113 @@
             font-family: 'IBM Plex Sans', sans-serif;
         }
 
-        /* Suavizar scroll para anclajes internos */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Clase para el efecto Glassmorphism */
         .glass {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
 
-        /* Clase para el modo oscuro del Glassmorphism */
         .dark .glass {
             background: rgba(22, 22, 22, 0.8);
             border-bottom-color: rgba(57, 57, 57, 0.8);
         }
+
+        /* Animación directa para la sección Hero al cargar */
+        @keyframes fadeInUpHero {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-hero-entry {
+            animation: fadeInUpHero 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Scrollbar styling for tech stack */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body class="bg-background text-on-background antialiased dark:bg-[#161616] dark:text-[#f4f4f4]">
-<nav class="glass border-b border-[#e0e0e0] dark:border-[#393939] flex justify-between items-center w-full px-4 md:px-8 h-[64px] sticky top-0 z-50 font-['IBM_Plex_Sans'] text-[14px] tracking-tight">
-    <div class="text-xl font-bold text-[#161616] dark:text-[#f4f4f4] flex items-center gap-2">
+
+<nav class="glass border-b border-[#e0e0e0] dark:border-[#393939] flex justify-between items-center w-full px-4 md:px-8 h-[64px] sticky top-0 z-50 font-['IBM_Plex_Sans'] text-[14px] tracking-tight relative">
+    <div class="text-xl font-bold text-[#161616] dark:text-[#f4f4f4] flex items-center gap-2 relative z-50">
         <span class="material-symbols-outlined text-sm text-primary">account_balance_wallet</span>
         <span>Benjamín Berna</span>
     </div>
-    <div class="hidden md:flex items-center gap-10 h-full">
+
+    <div class="hidden lg:flex items-center gap-8 h-full relative z-50">
         <a class="text-[#0f62fe] dark:text-[#78a9ff] border-b-2 border-[#0f62fe] dark:border-[#78a9ff] pb-1 h-full flex items-center font-semibold"
            href="#">Inicio</a>
         <a class="text-[#525252] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#ffffff] transition-colors h-full flex items-center"
            href="#about">Sobre Mí</a>
         <a class="text-[#525252] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#ffffff] transition-colors h-full flex items-center"
+           href="#skills">Habilidades</a>
+        <a class="text-[#525252] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#ffffff] transition-colors h-full flex items-center"
            href="#experience">Experiencia</a>
+        <a class="text-[#525252] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#ffffff] transition-colors h-full flex items-center"
+           href="#education">Educación</a>
     </div>
-    <button id="theme-toggle"
-            class="bg-primary text-white px-5 py-2 hover:opacity-90 transition-opacity flex items-center gap-2 rounded-lg text-sm font-semibold">
-        <span class="material-symbols-outlined text-sm" id="theme-icon">dark_mode</span> Apariencia
-    </button>
+
+    <div class="flex items-center gap-4 relative z-50">
+        <button id="theme-toggle"
+                class="bg-primary text-white px-4 py-2 hover:opacity-90 transition-opacity flex items-center gap-2 rounded-lg text-sm font-semibold">
+            <span class="material-symbols-outlined text-sm" id="theme-icon">dark_mode</span> <span
+                class="hidden sm:inline">Apariencia</span>
+        </button>
+        <button id="mobile-menu-btn"
+                class="lg:hidden flex items-center justify-center p-2 text-on-surface dark:text-[#f4f4f4] hover:bg-surface-variant dark:hover:bg-[#393939] rounded-lg transition-colors">
+            <span class="material-symbols-outlined" id="mobile-menu-icon">menu</span>
+        </button>
+    </div>
+
+    <div id="mobile-menu"
+         class="fixed inset-0 bg-surface/95 dark:bg-[#161616]/95 backdrop-blur-md z-40 transform -translate-y-full transition-all duration-300 flex flex-col items-center justify-center space-y-8 lg:hidden opacity-0 pointer-events-none">
+        <a class="text-3xl font-semibold text-[#161616] dark:text-[#f4f4f4] transition-colors mobile-link" href="#">Inicio</a>
+        <a class="text-3xl font-semibold text-[#525252] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#f4f4f4] transition-colors mobile-link"
+           href="#about">Sobre Mí</a>
+        <a class="text-3xl font-semibold text-[#525252] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#f4f4f4] transition-colors mobile-link"
+           href="#skills">Habilidades</a>
+        <a class="text-3xl font-semibold text-[#525252] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#f4f4f4] transition-colors mobile-link"
+           href="#experience">Experiencia</a>
+        <a class="text-3xl font-semibold text-[#525252] dark:text-[#c6c6c6] hover:text-[#161616] dark:hover:text-[#f4f4f4] transition-colors mobile-link"
+           href="#education">Educación</a>
+    </div>
 </nav>
 
-<main class="space-y-32">
-    <section
-            class="relative min-h-[90vh] flex items-start pt-32 px-4 md:px-16 overflow-hidden bg-surface dark:bg-[#161616]">
-        <div class="grid md:grid-cols-2 gap-20 items-center w-full max-w-7xl mx-auto">
-            <div class="order-2 md:order-1 space-y-8 z-10">
+<main class="space-y-0">
+    <section id="hero"
+             class="relative min-h-[90vh] flex items-start pt-32 pb-24 px-4 md:px-16 overflow-hidden bg-surface dark:bg-[#161616] animate-hero-entry opacity-0">
+        <div class="absolute inset-0 pointer-events-none text-on-surface dark:text-[#f4f4f4] opacity-[0.04] dark:opacity-[0.08]"
+             style="background-image: radial-gradient(currentColor 1.5px, transparent 1.5px); background-size: 24px 24px;"></div>
+
+        <div class="grid md:grid-cols-2 gap-20 items-center w-full max-w-7xl mx-auto relative z-10">
+            <div class="order-2 md:order-1 space-y-8">
                 <div class="space-y-4">
                     <p class="text-primary font-semibold tracking-widest text-sm uppercase">¡Hola! Soy Benjamín Berna
                         Castillo</p>
                     <h1 class="text-5xl md:text-8xl font-bold text-on-surface dark:text-[#f4f4f4] leading-none font-headline">
-                        CONTADOR<br/>GENERAL<br/>TITULADO
+                        CONTADOR<br/>GENERAL<br/>
+                        <span class="bg-gradient-to-r from-[#0f62fe] to-[#78a9ff] bg-clip-text text-transparent">TITULADO</span>
                     </h1>
                 </div>
-                <p class="text-lg text-on-surface-variant dark:text-[#c6c6c6] max-w-xl leading-relaxed">
-                    Contador General con experiencia en análisis contable y asesorías tributarias a
+                <p class="text-lg text-on-surface-variant dark:text-[#c6c6c6] max-w-xl leading-relaxed font-body">
+                    Egresado de Contabilidad General con experiencia en análisis contable y asesorías tributarias a
                     pymes. Me especializo en el cumplimiento tributario estratégico y poseo un enfoque inclusivo como
                     Intérprete Avanzado de Lengua de Señas Chilena.
                 </p>
@@ -106,83 +175,179 @@
                         <span class="material-symbols-outlined text-sm">arrow_forward</span>
                     </a>
                     <div class="flex gap-5">
-                        <a class="w-12 h-12 flex items-center justify-center border border-outline-variant dark:border-[#393939] hover:bg-surface-variant transition-colors rounded-full"
+                        <a class="w-12 h-12 flex items-center justify-center border border-outline-variant dark:border-[#393939] hover:bg-surface-variant dark:hover:bg-[#393939] transition-colors rounded-full"
                            href="mailto:bbernacastillo2005@gmail.com" title="Email">
                             <span class="material-symbols-outlined" data-icon="mail">mail</span>
                         </a>
-                        <a class="w-12 h-12 flex items-center justify-center border border-outline-variant dark:border-[#393939] hover:bg-surface-variant transition-colors rounded-full"
-                           href="#" title="Lengua de Señas Chilena (LSCh)">
-                            <span class="material-symbols-outlined" data-icon="interpreter_mode">interpreter_mode</span>
+                        <a class="w-12 h-12 flex items-center justify-center border border-outline-variant dark:border-[#393939] hover:bg-surface-variant dark:hover:bg-[#393939] transition-colors rounded-full"
+                           href="https://www.linkedin.com/in/benjamín-berna-castillo-56801629b" target="_blank"
+                           title="LinkedIn">
+                            <span class="material-symbols-outlined">work</span>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="order-1 md:order-2 flex justify-center md:justify-end relative">
-                <div class="relative w-full aspect-[3/4] max-w-xl bg-surface-container-high overflow-hidden shadow-2xl rounded-xl z-0 -mr-16 md:-mr-24">
+                <div class="relative w-full aspect-[3/4] max-w-xl bg-surface-container-high overflow-hidden shadow-2xl rounded-xl z-0 -mr-0 lg:-mr-24">
                     <img alt="Benjamín Berna Castillo - Contador General Chile"
                          class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                          src="./static/img/benjamin.png"/>
                     <div class="glass absolute bottom-0 right-0 p-8 text-white rounded-tl-xl backdrop-blur-md">
-                        <span class="block text-3xl font-bold text-primary">BDO CHILE</span>
-                        <span class="text-xs uppercase tracking-widest text-[#525252] dark:text-[#c6c6c6]">STAFF TAX &amp; LEGAL</span>
+                        <span class="block text-3xl font-bold text-primary font-headline">BDO CHILE</span>
+                        <span class="text-xs uppercase tracking-widest text-[#525252] dark:text-[#c6c6c6] font-body">STAFF TAX &amp; LEGAL</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-4 md:px-16 bg-surface-container-low dark:bg-[#262626]" id="about">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-20 items-start">
+    <section
+            class="py-12 px-4 border-y border-outline-variant dark:border-[#393939] bg-surface-container-low dark:bg-[#1a1a1a] overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-center text-sm font-bold text-on-surface-variant dark:text-[#8d8d8d] uppercase tracking-[0.2em] mb-8 font-body">
+                Stack Tecnológico & Plataformas</p>
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8 opacity-80">
+                <span class="px-6 py-3 border border-outline-variant dark:border-[#393939] rounded-full text-on-surface dark:text-[#f4f4f4] font-semibold flex items-center gap-2 font-body"><span
+                        class="material-symbols-outlined text-primary">dns</span> SAP ERP</span>
+                <span class="px-6 py-3 border border-outline-variant dark:border-[#393939] rounded-full text-on-surface dark:text-[#f4f4f4] font-semibold flex items-center gap-2 font-body"><span
+                        class="material-symbols-outlined text-primary">cloud</span> Defontana</span>
+                <span class="px-6 py-3 border border-outline-variant dark:border-[#393939] rounded-full text-on-surface dark:text-[#f4f4f4] font-semibold flex items-center gap-2 font-body"><span
+                        class="material-symbols-outlined text-primary">account_balance</span> Nubox</span>
+                <span class="px-6 py-3 border border-outline-variant dark:border-[#393939] rounded-full text-on-surface dark:text-[#f4f4f4] font-semibold flex items-center gap-2 font-body"><span
+                        class="material-symbols-outlined text-primary">table_chart</span> Microsoft Excel</span>
+                <span class="px-6 py-3 border border-outline-variant dark:border-[#393939] rounded-full text-on-surface dark:text-[#f4f4f4] font-semibold flex items-center gap-2 font-body"><span
+                        class="material-symbols-outlined text-primary">description</span> Microsoft Word</span>
+                <span class="px-6 py-3 border border-outline-variant dark:border-[#393939] rounded-full text-on-surface dark:text-[#f4f4f4] font-semibold flex items-center gap-2 font-body"><span
+                        class="material-symbols-outlined text-primary">domain</span> Portal SII en línea</span>
+                <span class="px-6 py-3 border border-outline-variant dark:border-[#393939] rounded-full text-on-surface dark:text-[#f4f4f4] font-semibold flex items-center gap-2 font-body"><span
+                        class="material-symbols-outlined text-primary">corporate_fare</span> Portal BDO</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-4 md:px-16 bg-surface dark:bg-[#161616]" id="about">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-20 items-center">
             <div class="md:col-span-5 relative">
-                <div class="sticky top-24">
-                    <img alt="Working context and inclusion" class="w-full h-[600px] object-cover rounded-xl shadow-xl"
-                         data-alt="Close-up of a professional office desk with financial documents and a hand signing, with other hands in inclusive communication poses in a bright corporate environment"
-                         src="./static/img/benjamin_escritorio.png"/>
-                    <div class="mt-10 space-y-4">
-                        <h4 class="font-bold text-on-surface dark:text-[#f4f4f4] text-lg">Aptitudes Principales:</h4>
-                        <ul class="space-y-3 text-on-surface-variant dark:text-[#c6c6c6] text-sm">
-                            <li class="flex items-center gap-3"><span
-                                    class="material-symbols-outlined text-primary text-xs" data-icon="check_circle">check_circle</span>
-                                Cumplimiento Tributario (Tax Compliance)
-                            </li>
-                            <li class="flex items-center gap-3"><span
-                                    class="material-symbols-outlined text-primary text-xs" data-icon="check_circle">check_circle</span>
-                                Análisis Contable y ERP (Defontana, Nubox, SAP)
-                            </li>
-                            <li class="flex items-center gap-3"><span
-                                    class="material-symbols-outlined text-primary text-xs" data-icon="check_circle">check_circle</span>
-                                Lengua de Señas Chilena (LSCh) Avanzado
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <img alt="Working context and inclusion" class="w-full h-[600px] object-cover rounded-xl shadow-xl"
+                     src="./static/img/benjamin_escritorio.png"/>
             </div>
             <div class="md:col-span-7 space-y-12">
                 <div class="space-y-5">
-                    <span class="text-primary font-bold text-xs uppercase tracking-[0.2em]">Sobre Mí</span>
-                    <h2 class="text-5xl md:text-7xl font-bold text-on-surface dark:text-[#f4f4f4] font-headline uppercase leading-none">
+                    <span class="text-primary font-bold text-xs uppercase tracking-[0.2em] font-body">Sobre Mí</span>
+                    <h2 class="text-5xl md:text-7xl text-on-surface dark:text-[#f4f4f4] font-headline uppercase leading-none">
                         Soluciones Contables<br/>& Enfoque Inclusivo
                     </h2>
-                    <h3 class="text-2xl text-primary font-semibold">Gran Santiago, Región Metropolitana, Chile</h3>
+                    <h3 class="text-2xl text-primary font-semibold font-body">Gran Santiago, Región Metropolitana,
+                        Chile</h3>
                 </div>
-                <div class="space-y-8 text-on-surface-variant dark:text-[#c6c6c6] leading-relaxed text-lg">
+                <div class="space-y-8 text-on-surface-variant dark:text-[#c6c6c6] leading-relaxed text-lg font-body">
                     <p>
-                        Manejo ERP como SAP y Defontana en nivel inicial, además de tener sólidos conocimientos en
-                        normativa tributaria y Normas Internacionales de Información Financiera (NIIF). Me caracterizo
-                        por la responsabilidad, la puntualidad y el aprendizaje constante.
+                        Como profesional de la contabilidad, gestiono declaraciones y analizo el marco tributario
+                        vigente aplicando la normativa y las Normas Internacionales de Información Financiera (NIIF). Me
+                        caracterizo por mi responsabilidad, puntualidad y vocación por el aprendizaje continuo para
+                        brindar asesorías precisas a los clientes.
                     </p>
                     <p>
-                        Mi enfoque va más allá de la precisión financiera; poseo un nivel avanzado en Lengua de Señas
-                        Chilena, lo que me permite aportar y desarrollarme en contextos inclusivos y diversos,
-                        fomentando una comunicación efectiva y el cumplimiento legal y financiero.
+                        Mi enfoque profesional va más allá de la precisión de los números; poseo un nivel avanzado en
+                        Lengua de Señas Chilena (LSCh). Esto me permite aportar y desarrollarme en contextos inclusivos,
+                        fomentando una comunicación efectiva sin barreras en el entorno corporativo y educativo.
                     </p>
                 </div>
                 <div class="pt-8 border-t border-outline-variant dark:border-[#393939]">
-                    <a class="bg-primary text-white px-12 py-5 font-bold flex items-center gap-4 hover:shadow-2xl hover:scale-105 transition-all group rounded-xl magnetic-button"
+                    <a class="bg-primary text-white px-12 py-5 font-bold flex items-center gap-4 hover:shadow-2xl hover:scale-105 transition-all group rounded-lg magnetic-button inline-flex"
                        href="mailto:bbernacastillo2005@gmail.com?subject=Solicitud%20CV%20-%20Benjamín%20Berna">
-                        <span class="material-symbols-outlined" data-icon="mail">mail</span>
-                        CONTACTAR PARA CV
+                        <span class="material-symbols-outlined" data-icon="mail">mail</span> CONTACTAR PARA CV
                     </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-4 md:px-16 bg-surface-container-low dark:bg-[#262626]" id="skills">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-20 text-center">
+                <span class="text-primary font-bold text-xs uppercase tracking-[0.2em] font-body">Competencias</span>
+                <h2 class="text-5xl md:text-6xl mt-3 font-headline uppercase text-on-surface dark:text-[#f4f4f4]">Mis
+                    Habilidades</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-surface dark:bg-[#161616] p-10 rounded-xl shadow-lg border border-outline-variant dark:border-[#393939] hover:-translate-y-2 transition-transform">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary text-3xl">desktop_windows</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] mb-6 font-body">Software &
+                        ERP</h3>
+                    <ul class="space-y-4 font-body">
+                        <li class="flex justify-between items-center border-b border-outline-variant dark:border-[#393939] pb-2">
+                            <span class="font-semibold text-on-surface dark:text-[#f4f4f4]">SAP ERP</span>
+                            <span class="text-xs bg-surface-container-high dark:bg-[#393939] px-2 py-1 rounded text-on-surface-variant dark:text-[#c6c6c6]">Nivel Inicial</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-outline-variant dark:border-[#393939] pb-2">
+                            <span class="font-semibold text-on-surface dark:text-[#f4f4f4]">Defontana</span>
+                            <span class="text-xs bg-surface-container-high dark:bg-[#393939] px-2 py-1 rounded text-on-surface-variant dark:text-[#c6c6c6]">Intermedio</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-outline-variant dark:border-[#393939] pb-2">
+                            <span class="font-semibold text-on-surface dark:text-[#f4f4f4]">Nubox</span>
+                            <span class="text-xs bg-surface-container-high dark:bg-[#393939] px-2 py-1 rounded text-on-surface-variant dark:text-[#c6c6c6]">Intermedio</span>
+                        </li>
+                        <li class="flex justify-between items-center pb-2">
+                            <span class="font-semibold text-on-surface dark:text-[#f4f4f4]">Microsoft Excel</span>
+                            <span class="text-xs bg-surface-container-high dark:bg-[#393939] px-2 py-1 rounded text-on-surface-variant dark:text-[#c6c6c6]">Avanzado</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-surface dark:bg-[#161616] p-10 rounded-xl shadow-lg border border-outline-variant dark:border-[#393939] hover:-translate-y-2 transition-transform">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary text-3xl">request_quote</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] mb-6 font-body">Área
+                        Tributaria</h3>
+                    <div class="flex flex-wrap gap-2 font-body">
+                        <span class="bg-surface-container-low dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">Formulario 29</span>
+                        <span class="bg-surface-container-low dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">Operación Renta</span>
+                        <span class="bg-surface-container-low dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">IVA</span>
+                        <span class="bg-surface-container-low dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">NIIF / IFRS</span>
+                        <span class="bg-surface-container-low dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">Conciliación Bancaria</span>
+                        <span class="bg-surface-container-low dark:bg-[#393939] text-on-surface dark:text-[#f4f4f4] px-4 py-2 rounded-lg font-medium text-sm border border-outline-variant dark:border-[#525252]">Normativa SII</span>
+                        <span class="bg-primary text-white px-4 py-2 rounded-lg font-medium text-sm">Tax Compliance</span>
+                    </div>
+                </div>
+
+                <div class="bg-surface dark:bg-[#161616] p-10 rounded-xl shadow-lg border border-outline-variant dark:border-[#393939] hover:-translate-y-2 transition-transform">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary text-3xl">forum</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] mb-6 font-body">Comunicación</h3>
+                    <ul class="space-y-4 font-body">
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary">sign_language</span>
+                            <div>
+                                <p class="font-bold text-on-surface dark:text-[#f4f4f4]">Lengua de Señas Chilena
+                                    (LSCh)</p>
+                                <p class="text-sm text-primary font-semibold">Nivel Avanzado</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-outline dark:text-[#8d8d8d]">language</span>
+                            <div>
+                                <p class="font-bold text-on-surface dark:text-[#f4f4f4]">Español</p>
+                                <p class="text-sm text-on-surface-variant dark:text-[#c6c6c6]">Nativo</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-outline dark:text-[#8d8d8d]">translate</span>
+                            <div>
+                                <p class="font-bold text-on-surface dark:text-[#f4f4f4]">Inglés</p>
+                                <p class="text-sm text-on-surface-variant dark:text-[#c6c6c6]">Intermedio</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-3 pt-4 border-t border-outline-variant dark:border-[#393939]">
+                            <span class="material-symbols-outlined text-primary">groups</span>
+                            <span class="font-bold text-on-surface dark:text-[#f4f4f4]">Mentoría entre iguales</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -191,89 +356,177 @@
     <section class="py-24 px-4 md:px-16 bg-surface dark:bg-[#161616]" id="experience">
         <div class="max-w-7xl mx-auto">
             <div class="mb-20 text-center">
-                <span class="text-primary font-bold text-xs uppercase tracking-[0.2em]">Trayectoria</span>
-                <h2 class="text-5xl md:text-6xl font-bold mt-3 font-headline uppercase text-on-surface dark:text-[#f4f4f4]">
-                    Mi Experiencia Profesional</h2>
+                <span class="text-primary font-bold text-xs uppercase tracking-[0.2em] font-body">Trayectoria</span>
+                <h2 class="text-5xl md:text-6xl mt-3 font-headline uppercase text-on-surface dark:text-[#f4f4f4]">Mi
+                    Experiencia Profesional</h2>
             </div>
 
             <div class="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:w-0.5 before:bg-outline-variant dark:before:bg-[#393939] md:before:ml-[223px] md:before:mr-auto">
                 <div class="relative flex items-center md:justify-center group">
                     <div class="flex flex-col md:flex-row md:items-start w-full md:grid md:grid-cols-[200px,1fr] gap-8">
-                        <div class="md:col-span-1 text-left md:text-right pt-8 pr-12">
+                        <div class="md:col-span-1 text-left md:text-right pt-8 pr-12 font-body">
                             <span class="text-primary font-bold text-xl block">2025 - Actual</span>
                             <p class="text-xs text-on-surface-variant dark:text-[#c6c6c6]">Las Condes, RM, Chile</p>
                         </div>
-                        <div class="md:col-span-1 bg-surface p-10 group-hover:bg-surface-container-low dark:bg-[#262626] dark:hover:bg-[#393939] rounded-xl shadow-lg hover:shadow-2xl transition-all space-y-4">
-                            <h4 class="text-3xl font-bold text-on-surface dark:text-[#f4f4f4] group-hover:text-primary transition-colors leading-tight">
-                                Staff
-                                B Tax &amp; Legal</h4>
-                            <p class="font-semibold text-on-surface-variant dark:text-[#c6c6c6]">BDO Chile</p>
-                            <p class="text-on-surface-variant dark:text-[#c6c6c6] leading-relaxed">
-                                Funciones orientadas al Tax Compliance y asesoría tributaria. Ingresé como Practicante
-                                (octubre - diciembre 2025) y fui contratado como Staff B.
+                        <div class="md:col-span-1 bg-surface-container-low dark:bg-[#262626] p-10 rounded-xl shadow-lg hover:shadow-2xl transition-all space-y-4 border border-outline-variant dark:border-[#393939] dark:hover:border-primary">
+                            <h4 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] group-hover:text-primary transition-colors leading-tight font-body">
+                                Staff Tax &amp; Legal</h4>
+                            <p class="font-semibold text-primary text-lg font-body">BDO Chile</p>
+                            <p class="text-on-surface-variant dark:text-[#c6c6c6] leading-relaxed font-body">
+                                Gestiono el cumplimiento tributario y brindo asesoría contable a clientes corporativos.
+                                Analicé marcos normativos ingresando originalmente como Practicante (octubre - diciembre
+                                2025) antes de mi promoción a Staff B.
                             </p>
                         </div>
                     </div>
-                    <div class="absolute left-0 top-1/2 -translate-y-1/2 ml-5 md:ml-[223px] -translate-x-1/2 w-3 h-3 bg-primary rounded-full group-hover:scale-150 transition-transform"></div>
+                    <div class="absolute left-0 top-1/2 -translate-y-1/2 ml-5 md:ml-[223px] -translate-x-1/2 w-4 h-4 bg-primary rounded-full group-hover:scale-150 transition-transform shadow-[0_0_10px_rgba(15,98,254,0.5)]"></div>
                 </div>
 
                 <div class="relative flex items-center md:justify-center group">
                     <div class="flex flex-col md:flex-row md:items-start w-full md:grid md:grid-cols-[200px,1fr] gap-8">
-                        <div class="md:col-span-1 text-left md:text-right pt-8 pr-12">
+                        <div class="md:col-span-1 text-left md:text-right pt-8 pr-12 font-body">
                             <span class="text-on-surface-variant dark:text-[#c6c6c6] font-bold text-xl block">2024 - 2025</span>
-                            <p class="text-xs text-on-surface-variant dark:text-[#c6c6c6]">Gran Santiago, RM, Chile</p>
+                            <p class="text-xs text-on-surface-variant dark:text-[#c6c6c6]">Gran Santiago, RM</p>
                         </div>
-                        <div class="md:col-span-1 bg-surface p-10 group-hover:bg-surface-container-low dark:bg-[#262626] dark:hover:bg-[#393939] rounded-xl shadow-lg hover:shadow-2xl transition-all space-y-4">
-                            <h4 class="text-3xl font-bold text-on-surface dark:text-[#f4f4f4] group-hover:text-primary transition-colors leading-tight">
-                                Intérprete de Lengua de Signos (LSCh)</h4>
-                            <p class="font-semibold text-on-surface-variant dark:text-[#c6c6c6]">Red Apis</p>
-                            <p class="text-on-surface-variant dark:text-[#c6c6c6] leading-relaxed">
-                                Interpretación en clases, eventos y charlas en universidades e institutos profesionales,
-                                incluyendo clases de formación general de Inglés.
+                        <div class="md:col-span-1 bg-surface-container-low dark:bg-[#262626] p-10 rounded-xl shadow-lg hover:shadow-2xl transition-all space-y-4 border border-outline-variant dark:border-[#393939] dark:hover:border-primary">
+                            <h4 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] group-hover:text-primary transition-colors leading-tight font-body">
+                                Intérprete de Lengua de Signos</h4>
+                            <p class="font-semibold text-on-surface-variant dark:text-[#c6c6c6] text-lg font-body">Red
+                                Apis</p>
+                            <p class="text-on-surface-variant dark:text-[#c6c6c6] leading-relaxed font-body">
+                                Interpreté en clases, eventos y charlas en instituciones de educación superior. Destaca
+                                mi rol donde interpreté clases de formación general de Inglés, asegurando la inclusión
+                                académica.
                             </p>
                         </div>
                     </div>
-                    <div class="absolute left-0 top-1/2 -translate-y-1/2 ml-5 md:ml-[223px] -translate-x-1/2 w-3 h-3 bg-primary rounded-full group-hover:scale-150 transition-transform"></div>
+                    <div class="absolute left-0 top-1/2 -translate-y-1/2 ml-5 md:ml-[223px] -translate-x-1/2 w-3 h-3 bg-outline dark:bg-[#525252] rounded-full group-hover:bg-primary group-hover:scale-150 transition-all"></div>
                 </div>
 
                 <div class="relative flex items-center md:justify-center group">
                     <div class="flex flex-col md:flex-row md:items-start w-full md:grid md:grid-cols-[200px,1fr] gap-8">
-                        <div class="md:col-span-1 text-left md:text-right pt-8 pr-12">
+                        <div class="md:col-span-1 text-left md:text-right pt-8 pr-12 font-body">
                             <span class="text-on-surface-variant dark:text-[#c6c6c6] font-bold text-xl block">2022 - 2023</span>
-                            <p class="text-xs text-on-surface-variant dark:text-[#c6c6c6]">Las Condes, RM, Chile</p>
+                            <p class="text-xs text-on-surface-variant dark:text-[#c6c6c6]">Las Condes, RM</p>
                         </div>
-                        <div class="md:col-span-1 bg-surface p-10 group-hover:bg-surface-container-low dark:bg-[#262626] dark:hover:bg-[#393939] rounded-xl shadow-lg hover:shadow-2xl transition-all space-y-4">
-                            <h4 class="text-3xl font-bold text-on-surface dark:text-[#f4f4f4] group-hover:text-primary transition-colors leading-tight">
+                        <div class="md:col-span-1 bg-surface-container-low dark:bg-[#262626] p-10 rounded-xl shadow-lg hover:shadow-2xl transition-all space-y-4 border border-outline-variant dark:border-[#393939] dark:hover:border-primary">
+                            <h4 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] group-hover:text-primary transition-colors leading-tight font-body">
                                 Auxiliar Contable</h4>
-                            <p class="font-semibold text-on-surface-variant dark:text-[#c6c6c6]">Sociedad Administradora
-                                de Edificios S.A (SADE
-                                S.A)</p>
-                            <p class="text-on-surface-variant dark:text-[#c6c6c6] leading-relaxed">
-                                Análisis de cuentas contables y conciliaciones bancarias. Elaboración de informes de
-                                control
-                                financiero. Uso de ERP propio de la empresa.
+                            <p class="font-semibold text-on-surface-variant dark:text-[#c6c6c6] text-lg font-body">
+                                Sociedad Administradora de Edificios S.A (SADE S.A)</p>
+                            <p class="text-on-surface-variant dark:text-[#c6c6c6] leading-relaxed font-body">
+                                Analicé cuentas contables y ejecuté conciliaciones bancarias de forma mensual. Elaboré
+                                informes de control financiero apoyándome en el uso del ERP propio de la empresa para
+                                mantener la precisión de los registros.
                             </p>
                         </div>
                     </div>
-                    <div class="absolute left-0 top-1/2 -translate-y-1/2 ml-5 md:ml-[223px] -translate-x-1/2 w-3 h-3 bg-primary rounded-full group-hover:scale-150 transition-transform"></div>
+                    <div class="absolute left-0 top-1/2 -translate-y-1/2 ml-5 md:ml-[223px] -translate-x-1/2 w-3 h-3 bg-outline dark:bg-[#525252] rounded-full group-hover:bg-primary group-hover:scale-150 transition-all"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-[#161616] text-white py-24 px-4 text-center">
-        <div class="max-w-4xl mx-auto space-y-10">
-            <h2 class="text-4xl md:text-5xl font-bold font-headline uppercase leading-none">¿BUSCA UN PERFIL
-                CONTABLE<br/>CON ENFOQUE INCLUSIVO?</h2>
-            <p class="text-on-secondary-fixed-variant dark:text-[#c6c6c6] text-xl max-w-2xl mx-auto">Responsabilidad,
-                aprendizaje constante y precisión
-                tributaria al servicio de su equipo. Contácteme para explorar oportunidades de colaboración.</p>
-            <div class="flex flex-col md:flex-row gap-6 justify-center pt-6">
-                <a class="bg-primary text-white px-10 py-4 font-bold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center gap-3 magnetic-button"
-                   href="mailto:bbernacastillo2005@gmail.com">CONTÁCTAME POR EMAIL</a>
-                <a class="border-2 border-white text-white px-10 py-4 font-bold rounded-lg hover:bg-white hover:text-on-surface hover:scale-105 transition-all flex items-center gap-3 magnetic-button"
-                   href="https://www.linkedin.com/in/benjamín-berna-castillo-56801629b" target="_blank">CONECTAR EN
-                    LINKEDIN</a>
+    <section class="py-24 px-4 md:px-16 bg-surface-container-low dark:bg-[#262626]" id="education">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-20 text-center">
+                <span class="text-primary font-bold text-xs uppercase tracking-[0.2em] font-body">Credenciales</span>
+                <h2 class="text-5xl md:text-6xl mt-3 font-headline uppercase text-on-surface dark:text-[#f4f4f4]">
+                    Formación Académica</h2>
+            </div>
+
+            <div class="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:w-0.5 before:bg-outline-variant dark:before:bg-[#393939] md:before:ml-[223px] md:before:mr-auto">
+                <div class="relative flex items-center md:justify-center group">
+                    <div class="flex flex-col md:flex-row md:items-start w-full md:grid md:grid-cols-[200px,1fr] gap-8">
+                        <div class="md:col-span-1 text-left md:text-right pt-8 pr-12 font-body">
+                            <span class="text-primary font-bold text-xl block">2024 - 2026</span>
+                            <p class="text-xs text-on-surface-variant dark:text-[#c6c6c6]">Titulado</p>
+                        </div>
+                        <div class="md:col-span-1 bg-surface dark:bg-[#161616] p-10 rounded-xl shadow border border-outline-variant dark:border-[#393939] hover:-translate-y-1 transition-transform space-y-3">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="material-symbols-outlined text-primary text-3xl">school</span>
+                                <h4 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] font-body">Técnico de
+                                    Nivel Superior en Contabilidad General</h4>
+                            </div>
+                            <p class="font-semibold text-on-surface-variant dark:text-[#c6c6c6] text-lg font-body">
+                                Instituto Profesional IACC</p>
+                            <p class="text-sm text-on-surface-variant dark:text-[#8d8d8d] font-body">Especialización en
+                                Contabilidad y Finanzas.</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-0 top-1/2 -translate-y-1/2 ml-5 md:ml-[223px] -translate-x-1/2 w-4 h-4 bg-primary rounded-full group-hover:scale-125 transition-transform"></div>
+                </div>
+
+                <div class="relative flex items-center md:justify-center group">
+                    <div class="flex flex-col md:flex-row md:items-start w-full md:grid md:grid-cols-[200px,1fr] gap-8">
+                        <div class="md:col-span-1 text-left md:text-right pt-8 pr-12 font-body">
+                            <span class="text-on-surface-variant dark:text-[#c6c6c6] font-bold text-xl block">2025</span>
+                            <p class="text-xs text-on-surface-variant dark:text-[#c6c6c6]">Marzo - Julio</p>
+                        </div>
+                        <div class="md:col-span-1 bg-surface dark:bg-[#161616] p-10 rounded-xl shadow border border-outline-variant dark:border-[#393939] hover:-translate-y-1 transition-transform space-y-3">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="material-symbols-outlined text-primary text-3xl">verified</span>
+                                <h4 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] font-body">3° Nivel de
+                                    Lengua de Señas Chilena "Avanzado"</h4>
+                            </div>
+                            <p class="font-semibold text-on-surface-variant dark:text-[#c6c6c6] text-lg font-body">
+                                ESILENSE</p>
+                            <p class="text-sm text-on-surface-variant dark:text-[#8d8d8d] font-body">Certificación
+                                formal de competencias avanzadas en comunicación inclusiva.</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-0 top-1/2 -translate-y-1/2 ml-5 md:ml-[223px] -translate-x-1/2 w-3 h-3 bg-outline dark:bg-[#525252] rounded-full group-hover:bg-primary transition-colors"></div>
+                </div>
+
+                <div class="relative flex items-center md:justify-center group">
+                    <div class="flex flex-col md:flex-row md:items-start w-full md:grid md:grid-cols-[200px,1fr] gap-8">
+                        <div class="md:col-span-1 text-left md:text-right pt-8 pr-12 font-body">
+                            <span class="text-on-surface-variant dark:text-[#c6c6c6] font-bold text-xl block">2021 - 2022</span>
+                        </div>
+                        <div class="md:col-span-1 bg-surface dark:bg-[#161616] p-10 rounded-xl shadow border border-outline-variant dark:border-[#393939] hover:-translate-y-1 transition-transform space-y-3">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="material-symbols-outlined text-outline dark:text-[#8d8d8d] text-3xl">history_edu</span>
+                                <h4 class="text-2xl font-bold text-on-surface dark:text-[#f4f4f4] font-body">Técnico de
+                                    Nivel Medio en Contabilidad</h4>
+                            </div>
+                            <p class="font-semibold text-on-surface-variant dark:text-[#c6c6c6] text-lg font-body">Liceo
+                                Profesional Abdón Cifuentes</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-0 top-1/2 -translate-y-1/2 ml-5 md:ml-[223px] -translate-x-1/2 w-3 h-3 bg-outline dark:bg-[#525252] rounded-full group-hover:bg-primary transition-colors"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section
+            class="relative bg-gradient-to-br from-[#001d6c] to-[#161616] text-white py-24 px-4 text-center overflow-hidden">
+        <div class="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
+
+            <div class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-medium mb-8 backdrop-blur-sm font-body">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#42be65] animate-pulse"></span>
+                Disponible para nuevos desafíos
+            </div>
+
+            <h2 class="text-4xl md:text-6xl font-headline uppercase leading-none mb-8">
+                ¿BUSCA UN PERFIL CONTABLE<br/>
+                CON ENFOQUE <span class="text-[#78a9ff]">INCLUSIVO?</span>
+            </h2>
+
+            <p class="text-gray-300 text-xl max-w-2xl mx-auto font-body mb-10">
+                Responsabilidad, aprendizaje constante y precisión tributaria al servicio de su equipo. Contácteme para
+                explorar oportunidades de colaboración.
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <a class="bg-primary text-white px-10 py-4 font-bold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center gap-3 magnetic-button font-body"
+                   href="mailto:bbernacastillo2005@gmail.com">
+                    CONTÁCTAME POR EMAIL
+                </a>
+                <a class="border-2 border-white text-white px-10 py-4 font-bold rounded-lg hover:bg-white hover:text-[#001d6c] hover:scale-105 transition-all flex items-center justify-center gap-3 magnetic-button font-body"
+                   href="https://www.linkedin.com/in/benjamín-berna-castillo-56801629b" target="_blank">
+                    CONECTAR EN LINKEDIN
+                </a>
             </div>
         </div>
     </section>
@@ -284,9 +537,9 @@
         Benjamín Berna Castillo
     </div>
     <div>
-        © 2024 Benjamín Berna Castillo. Todos los derechos reservados.
+        © <span id="year"></span> Benjamín Berna Castillo. Todos los derechos reservados.
     </div>
-    <div class="flex gap-6">
+    <div class="flex gap-6 flex-wrap justify-center">
         <a class="text-[#525252] dark:text-[#a8a8a8] hover:underline hover:text-[#0f62fe] dark:hover:text-[#78a9ff]"
            href="https://www.linkedin.com/in/benjamín-berna-castillo-56801629b" target="_blank">LinkedIn</a>
         <a class="text-[#525252] dark:text-[#a8a8a8] hover:underline hover:text-[#0f62fe] dark:hover:text-[#78a9ff]"
@@ -297,25 +550,59 @@
 </footer>
 
 <script>
+    // Dinamizar Año Footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
     // Theme Toggle Logic
     const themeToggleBtn = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
     const htmlElement = document.documentElement;
+
+    if (htmlElement.classList.contains('dark')) {
+        themeIcon.textContent = 'light_mode';
+    } else {
+        themeIcon.textContent = 'dark_mode';
+    }
 
     themeToggleBtn.addEventListener('click', () => {
         htmlElement.classList.toggle('dark');
         htmlElement.classList.toggle('light');
         if (htmlElement.classList.contains('dark')) {
             themeIcon.textContent = 'light_mode';
+            localStorage.theme = 'dark';
         } else {
             themeIcon.textContent = 'dark_mode';
+            localStorage.theme = 'light';
         }
     });
 
-    // Scroll Reveal Logic using Intersection Observer
-    const sections = document.querySelectorAll('section, main');
-    const cards = document.querySelectorAll('.experience-card');
+    // Mobile Menu Toggle Logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
 
+    let isMobileMenuOpen = false;
+
+    function toggleMobileMenu() {
+        isMobileMenuOpen = !isMobileMenuOpen;
+        if (isMobileMenuOpen) {
+            mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+            mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            mobileMenuIcon.textContent = 'close';
+            document.body.style.overflow = 'hidden';
+        } else {
+            mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+            mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            mobileMenuIcon.textContent = 'menu';
+            document.body.style.overflow = '';
+        }
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    mobileLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
+
+    // Scroll Reveal Logic using Intersection Observer
     const revealOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -325,11 +612,10 @@
         });
     }, {
         root: null,
-        threshold: 0.1, // Element is 10% visible
+        threshold: 0.1,
     });
 
-    // Initial classes for reveal effect
-    document.querySelectorAll('section').forEach(section => {
+    document.querySelectorAll('section:not(#hero)').forEach(section => {
         section.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000', 'ease-out');
         revealOnScroll.observe(section);
     });
